@@ -1,6 +1,3 @@
-
-# Elevict's CSS Snippets
-
 <p align="center">
 <img src="https://github.com/user-attachments/assets/a127591d-92d9-4d05-9d01-414739934a7f" width="500" style="border-radius:8px; box-shadow:0 4px 8px rgba(0, 0, 0, 0.2);"/>
 </p>
