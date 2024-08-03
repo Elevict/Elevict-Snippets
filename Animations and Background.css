@@ -1,0 +1,188 @@
+body, body.is-translucent{
+	background-color:var(--background-secondary);
+}
+
+/* Background Wave design */
+body:not(.toggle-wave-background):before{
+	content:"";
+	position:absolute;
+    width:100%;
+    height:100%;
+	
+	-webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" xml:space="preserve"><path opacity=".1" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"/><path opacity=".2" d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"/><path opacity=".4" d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"/></svg>');
+	-webkit-mask-size:300% 300px;
+	-webkit-mask-position:88.5% -73px;
+	-webkit-mask-repeat:no-repeat;
+    background-color:var(--color-accent-2);
+	transform:rotateZ(180deg);
+	opacity:0.5;
+}
+
+/* remove padding-top when fullscreen in obsidian-ver titlebar */
+body.is-frameless:not(.is-hidden-frameless).is-fullscreen{
+	padding-top:0;
+}
+
+/* remove backgrounds for wave design background */
+.workspace,
+.workspace-tabs .workspace-leaf,
+.workspace-ribbon,
+.workspace-split.mod-root,
+.workspace-tab-header-container,
+.workspace-split.mod-root .view-content{ /* remove background as parent will be the one to have it instead */
+	background:none;
+}
+
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
+    border-radius: 30px;
+    padding: 5px;
+    margin: 30px 0px 10px -20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+	font-family: Sans-serif;
+}
+
+.workspace-split {
+	background: none;
+}
+
+/* Switching overflow:auto to overlay */
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container,
+body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-scrollbar-overlay) :is(.callout-content,.markdown-rendered pre,.markdown-source-view.mod-cm6 .math-block > mjx-container){
+	overflow-x:overlay;
+}
+body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-scrollbar-overlay) :is(.cm-scroller,.workspace-leaf-content .view-content,.backlink-pane, .outgoing-link-pane,.item-list,.search-result-container.mod-global-search,.open-vault-options,.recent-vaults-list,.workspace-leaf-content .view-content:not(:has(.canvas-wrapper)) .markdown-preview-view,,.community-modal-info,.prompt-results,.suggestion,.vertical-tab-content,.pdf-scroll-container,.nav-files-container){
+	overflow-y:overlay;
+}
+/* Switching overflow:scroll to overlay */
+body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-scrollbar-overlay) .CodeMirror-hscrollbar{
+	overflow-x:overlay;
+}
+body:not(.is-mobile):is(:not(.css-settings-manager),.toggle-scrollbar-overlay) .CodeMirror-vscrollbar{
+	overflow-y:overlay;
+}
+
+/* remove background to adapt translucent mode */
+.is-translucent:not(.is-fullscreen) .titlebar,
+.is-translucent.is-hidden-frameless:not(.is-fullscreen) .titlebar-button-container.mod-right{
+	background:none;
+}
+
+/* remove distinguishing-borders on sidebars and headers */
+.workspace-ribbon,
+.workspace-tab-header-container{
+	border:none;
+}
+
+/* hide handle visibility when not hovered */
+.workspace-leaf-resize-handle{
+	border-color:transparent;
+}
+
+/*BORDI DELLA PAGINA IN ALTO CON CURVA PIUTTOSTO CHE CON ANGOLO*/
+.workspace-split.mod-root > .workspace-leaf:first-of-type,
+.workspace-split.mod-root > .workspace-leaf:last-of-type {
+    border-radius: 15px;
+}
+
+.workspace-tab-container {
+    border-radius: 25px 25px 0px 0px;
+}
+
+/*ANIMAZIONI PER LE IMPOSTAZIONI QUANDO EVOCATE CON HOTKEY
+
+.workspace-tab-header-container{
+	padding: 0px;
+}
+
+/* Extend margin beneath it */
+.workspace-split.mod-vertical.mod-root .workspace-tab-header-container{
+	margin:0 0 11px 0;
+}
+
+body.toggle-tab-height .workspace-split.mod-vertical.mod-root .workspace-tab-header-container{
+	margin:0 0 5px 0;
+}
+
+/* Remove top-margin and increase gap in between tabs */
+.workspace-split.mod-vertical.mod-root .workspace-tab-header-container-inner{
+	margin:5 -5px;
+	gap: 0px;
+	padding-top:0;
+}
+
+/* Remove tab siblings border-radius design */
+.workspace-split.mod-vertical.mod-root .workspace-tab-header:before,
+.workspace-split.mod-vertical.mod-root .workspace-tab-header:after,
+.workspace .mod-root .workspace-tab-header-inner::after{ /* Remove border-right on tabs that are not active */
+	display:none;
+}
+body.is-translucent .workspace-split.mod-vertical.mod-root .workspace-tabs:not(.mod-stacked) .workspace-leaf{
+	background:var(--background-primary)!important;
+}
+
+.modal{
+	border-radius:var(--window-radius);
+	animation:0.2s popup forwards;
+}
+
+@keyframes popup{
+	0% { transform:scale(70%); opacity:0; }
+	15% { transform:scale(80%); opacity:0.1; }
+	35% { transform:scale(102%);  }
+	45% { opacity:0.3; }
+	65% { opacity:0.7; }
+	100% { transform:scale(100%); opacity:1; }
+}
+
+body:is(:not(.css-settings-manager), .toggle-note-animation) .workspace-split.mod-vertical.mod-root .workspace-tabs:not(.mod-stacked)  .view-content{
+	animation:0.2s slide-up forwards;
+}
+
+@keyframes slide-up{
+	0% { transform:translateY(0%); opacity:0; }
+	15% { transform:translateY(5px); opacity:0; }
+	25% { transform:translateY(10px); }
+	45% { opacity:0.5; }
+	65% { opacity:0.7; }
+	100% { transform:translateY(0%); opacity:1; }
+}
+
+:is(.nav-folder, .nav-file) :is(.nav-folder-title, .nav-file-title).is-active svg{
+	animation:0.3s bounceback;
+}
+
+@keyframes bounceback{
+	0% { transform:translateY(0%); }
+	60% { transform:translateY(10%); }
+	100% { transform:translateY(0%); }
+}
+
+@keyframes wave-animation {
+	0% {
+	  -webkit-mask-position: 0% 0%;
+	}
+	50% {
+	  -webkit-mask-position: 100% 0%;
+	}
+	100% {
+	  -webkit-mask-position: 0% 0%;
+	}
+  }
+  
+  body:not(.toggle-wave-background):before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+  
+	-webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" xml:space="preserve"><path opacity=".1" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"/><path opacity=".2" d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"/><path opacity=".4" d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"/></svg>');
+	-webkit-mask-size: 300% 300px;
+	-webkit-mask-position: 0% 0%; /* Initial position */
+	-webkit-mask-repeat: no-repeat;
+	background-color: var(--color-accent-2);
+	transform: rotateZ(180deg);
+	opacity: 0.5;
+  
+	animation: wave-animation 800s linear infinite; /* Apply the animation */
+  }
+  

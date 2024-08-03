@@ -1,0 +1,80 @@
+/*
+Made by Elevict
+
+Date: Last updated July 30th, 2024
+Description: A series of nice looking callouts for mathematics
+*/
+
+/* ============== Callout Color Variables ============== */
+.theme-light {
+  --problem-color: 182, 82, 82;
+  --question-color: 5, 99, 55;
+  --theorem-color: 223, 128, 32;
+  --example-color: 214, 155, 28;
+  --definition-color: 14, 171, 212;
+  --corollary-color: 118, 23, 161;
+  --proposition-color: 10, 10, 10;
+}
+
+.theme-dark {
+  --problem-color: 182, 82, 82;
+  --question-color: 50, 150, 100;
+  --theorem-color: 223, 128, 32;
+  --example-color: 214, 155, 28;
+  --definition-color: 14, 171, 212;
+  --corollary-color: 118, 23, 161;
+  --proposition-color: 214, 214, 214;
+}
+
+/* General Mathematics Callout Style */
+.callout[data-callout="problem"],
+.callout[data-callout="question"],
+.callout[data-callout="theorem"],
+.callout[data-callout="example"],
+.callout[data-callout="definition"],
+.callout[data-callout="corollary"],
+.callout[data-callout="proposition"] {
+  font-family: Times;
+  mix-blend-mode: normal;
+  border: solid 2px;
+  border-radius: 6px;
+  padding: 12px 12px 0px 12px;
+  border-color: rgba(var(--callout-color), 0.3);
+
+  /* Adjust Title */
+  .callout-title-inner {
+    font-weight: revert;
+    color: rgb(var(--callout-color));
+  }
+
+  /* Remove Icon */
+  .callout-icon {
+    display: none;
+  }
+
+  /* Vertically centers the p element */
+  .callout-content {
+    align-items: center;
+  }
+
+  /* Adjust callout content margins */
+  p {
+    margin: 4px 4px 10px 0px
+  }
+
+  /* Change color of table and bullet lists inside callout */
+  --table-border-color: rgb(var(--callout-color));
+  --table-header-border-color: rgb(var(--callout-color));
+  --list-marker-color: rgb(var(--callout-color));
+  --link-color: rgb(var(--callout-color));
+  --bold-color: rgb(var(--callout-color));
+}
+
+/* Apply Colors to Callouts */
+.callout[data-callout="problem"] {--callout-color: var(--problem-color);}
+.callout[data-callout="question"] {--callout-color: var(--question-color);}
+.callout[data-callout="theorem"] {--callout-color: var(--theorem-color);}
+.callout[data-callout="example"] {--callout-color: var(--example-color);}
+.callout[data-callout="definition"] {--callout-color: var(--definition-color);}
+.callout[data-callout="corollary"] {--callout-color: var(--corollary-color);}
+.callout[data-callout="proposition"] {--callout-color: var(--proposition-color);}

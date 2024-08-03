@@ -1,0 +1,235 @@
+/*
+Made by Elevict
+
+Date: Last updated July 30th, 2024
+Description: A series of gradient callouts for designing a homepage. Requires
+MCL snippet to function.
+*/
+
+/* ============== Callout Variables ============== */
+:root {
+  /* Gradient Callout Settings */
+  --callout-font: Sans-serif;
+  --callout-title-font-family: Sans-serif;
+  --callout-font-size: 10pt;
+  --callout-title-font-weight: 700;
+  --callout-title-font-size: 12pt;
+
+  /* Gradient Callouts */
+  --blue-gradient-1: 45, 34, 198;
+  --blue-gradient-2: 59, 34, 201;
+  --blue-gradient-3: 72, 33, 205;
+  --blue-gradient-4: 86, 33, 208;
+  --blue-gradient-5: 99, 33, 211;
+  --blue-gradient-6: 113, 33, 215;
+  --blue-gradient-7: 126, 32, 218;
+  --blue-gradient-8: 140, 32, 222;
+  --blue-gradient-9: 154, 32, 225;
+  --blue-gradient-10: 167, 31, 228;
+  --blue-gradient-11: 181, 31, 232;
+  --blue-gradient-12: 194, 31, 235;
+  --blue-gradient-13: 208, 31, 238;
+  --blue-gradient-14: 221, 30, 242;
+  --blue-gradient-15: 235, 30, 245;
+
+  --green-gradient-1: 34, 199, 50;
+  --green-gradient-2: 47, 200, 49;
+  --green-gradient-3: 60, 201, 47;
+  --green-gradient-4: 74, 201, 46;
+  --green-gradient-5: 87, 202, 44;
+  --green-gradient-6: 100, 203, 43;
+  --green-gradient-7: 113, 204, 41;
+  --green-gradient-8: 127, 205, 40;
+  --green-gradient-9: 140, 205, 38;
+  --green-gradient-10: 153, 206, 37;
+  --green-gradient-11: 166, 207, 35;
+  --green-gradient-12: 179, 208, 34;
+  --green-gradient-13: 193, 208, 32;
+  --green-gradient-14: 206, 209, 31;
+  --green-gradient-15: 219, 210, 29;
+
+  --orange-gradient-1: 199, 169, 34;
+  --orange-gradient-2: 200, 159, 34;
+  --orange-gradient-3: 202, 149, 33;
+  --orange-gradient-4: 203, 139, 33;
+  --orange-gradient-5: 205, 129, 33;
+  --orange-gradient-6: 206, 119, 32;
+  --orange-gradient-7: 208, 109, 32;
+  --orange-gradient-8: 209, 99, 32;
+  --orange-gradient-9: 210, 89, 31;
+  --orange-gradient-10: 212, 79, 31;
+  --orange-gradient-11: 213, 69, 30;
+  --orange-gradient-12: 215, 59, 30;
+  --orange-gradient-13: 216, 49, 30;
+  --orange-gradient-14: 218, 39, 29;
+  --orange-gradient-15: 219, 29, 29;
+
+  --cyan-gradient-1: 33, 59, 255;
+  --cyan-gradient-2: 31, 73, 250;
+  --cyan-gradient-3: 28, 87, 244;
+  --cyan-gradient-4: 26, 101, 239;
+  --cyan-gradient-5: 24, 115, 233;
+  --cyan-gradient-6: 21, 129, 228;
+  --cyan-gradient-7: 19, 143, 222;
+  --cyan-gradient-8: 17, 157, 217;
+  --cyan-gradient-9: 14, 171, 212;
+  --cyan-gradient-10: 12, 185, 206;
+  --cyan-gradient-11: 9, 199, 201;
+  --cyan-gradient-12: 7, 213, 195;
+  --cyan-gradient-13: 5, 227, 190;
+  --cyan-gradient-14: 2, 241, 184;
+  --cyan-gradient-15: 0, 255, 179;
+
+  --pink-gradient-1: 255, 0, 191;
+  --pink-gradient-2: 255, 0, 186;
+  --pink-gradient-3: 255, 0, 180;
+  --pink-gradient-4: 255, 0, 175;
+  --pink-gradient-5: 255, 0, 169;
+  --pink-gradient-6: 255, 0, 164;
+  --pink-gradient-7: 255, 0, 158;
+  --pink-gradient-8: 255, 0, 153;
+  --pink-gradient-9: 255, 0, 148;
+  --pink-gradient-10: 255, 0, 142;
+  --pink-gradient-11: 255, 0, 137;
+  --pink-gradient-12: 255, 0, 131;
+  --pink-gradient-13: 255, 0, 126;
+  --pink-gradient-14: 255, 0, 120;
+  --pink-gradient-15: 255, 0, 115;
+}
+
+/* Apply Colors to Callouts */
+.callout[data-callout="blue_gradient_1"] { --callout-color: var(--blue-gradient-1); }
+.callout[data-callout="blue_gradient_2"] { --callout-color: var(--blue-gradient-2); }
+.callout[data-callout="blue_gradient_3"] { --callout-color: var(--blue-gradient-3); }
+.callout[data-callout="blue_gradient_4"] { --callout-color: var(--blue-gradient-4); }
+.callout[data-callout="blue_gradient_5"] { --callout-color: var(--blue-gradient-5); }
+.callout[data-callout="blue_gradient_6"] { --callout-color: var(--blue-gradient-6); }
+.callout[data-callout="blue_gradient_7"] { --callout-color: var(--blue-gradient-7); }
+.callout[data-callout="blue_gradient_8"] { --callout-color: var(--blue-gradient-8); }
+.callout[data-callout="blue_gradient_9"] { --callout-color: var(--blue-gradient-9); }
+.callout[data-callout="blue_gradient_10"] { --callout-color: var(--blue-gradient-10); }
+.callout[data-callout="blue_gradient_11"] { --callout-color: var(--blue-gradient-11); }
+.callout[data-callout="blue_gradient_12"] { --callout-color: var(--blue-gradient-12); }
+.callout[data-callout="blue_gradient_13"] { --callout-color: var(--blue-gradient-13); }
+.callout[data-callout="blue_gradient_14"] { --callout-color: var(--blue-gradient-14); }
+.callout[data-callout="blue_gradient_15"] { --callout-color: var(--blue-gradient-15); }
+
+.callout[data-callout="green_gradient_1"] { --callout-color: var(--green-gradient-1); }
+.callout[data-callout="green_gradient_2"] { --callout-color: var(--green-gradient-2); }
+.callout[data-callout="green_gradient_3"] { --callout-color: var(--green-gradient-3); }
+.callout[data-callout="green_gradient_4"] { --callout-color: var(--green-gradient-4); }
+.callout[data-callout="green_gradient_5"] { --callout-color: var(--green-gradient-5); }
+.callout[data-callout="green_gradient_6"] { --callout-color: var(--green-gradient-6); }
+.callout[data-callout="green_gradient_7"] { --callout-color: var(--green-gradient-7); }
+.callout[data-callout="green_gradient_8"] { --callout-color: var(--green-gradient-8); }
+.callout[data-callout="green_gradient_9"] { --callout-color: var(--green-gradient-9); }
+.callout[data-callout="green_gradient_10"] { --callout-color: var(--green-gradient-10); }
+.callout[data-callout="green_gradient_11"] { --callout-color: var(--green-gradient-11); }
+.callout[data-callout="green_gradient_12"] { --callout-color: var(--green-gradient-12); }
+.callout[data-callout="green_gradient_13"] { --callout-color: var(--green-gradient-13); }
+.callout[data-callout="green_gradient_14"] { --callout-color: var(--green-gradient-14); }
+.callout[data-callout="green_gradient_15"] { --callout-color: var(--green-gradient-15); }
+
+.callout[data-callout="orange_gradient_1"] { --callout-color: var(--orange-gradient-1); }
+.callout[data-callout="orange_gradient_2"] { --callout-color: var(--orange-gradient-2); }
+.callout[data-callout="orange_gradient_3"] { --callout-color: var(--orange-gradient-3); }
+.callout[data-callout="orange_gradient_4"] { --callout-color: var(--orange-gradient-4); }
+.callout[data-callout="orange_gradient_5"] { --callout-color: var(--orange-gradient-5); }
+.callout[data-callout="orange_gradient_6"] { --callout-color: var(--orange-gradient-6); }
+.callout[data-callout="orange_gradient_7"] { --callout-color: var(--orange-gradient-7); }
+.callout[data-callout="orange_gradient_8"] { --callout-color: var(--orange-gradient-8); }
+.callout[data-callout="orange_gradient_9"] { --callout-color: var(--orange-gradient-9); }
+.callout[data-callout="orange_gradient_10"] { --callout-color: var(--orange-gradient-10); }
+.callout[data-callout="orange_gradient_11"] { --callout-color: var(--orange-gradient-11); }
+.callout[data-callout="orange_gradient_12"] { --callout-color: var(--orange-gradient-12); }
+.callout[data-callout="orange_gradient_13"] { --callout-color: var(--orange-gradient-13); }
+.callout[data-callout="orange_gradient_14"] { --callout-color: var(--orange-gradient-14); }
+.callout[data-callout="orange_gradient_15"] { --callout-color: var(--orange-gradient-15); }
+
+.callout[data-callout="cyan_gradient_1"] { --callout-color: var(--cyan-gradient-1); }
+.callout[data-callout="cyan_gradient_2"] { --callout-color: var(--cyan-gradient-2); }
+.callout[data-callout="cyan_gradient_3"] { --callout-color: var(--cyan-gradient-3); }
+.callout[data-callout="cyan_gradient_4"] { --callout-color: var(--cyan-gradient-4); }
+.callout[data-callout="cyan_gradient_5"] { --callout-color: var(--cyan-gradient-5); }
+.callout[data-callout="cyan_gradient_6"] { --callout-color: var(--cyan-gradient-6); }
+.callout[data-callout="cyan_gradient_7"] { --callout-color: var(--cyan-gradient-7); }
+.callout[data-callout="cyan_gradient_8"] { --callout-color: var(--cyan-gradient-8); }
+.callout[data-callout="cyan_gradient_9"] { --callout-color: var(--cyan-gradient-9); }
+.callout[data-callout="cyan_gradient_10"] { --callout-color: var(--cyan-gradient-10); }
+.callout[data-callout="cyan_gradient_11"] { --callout-color: var(--cyan-gradient-11); }
+.callout[data-callout="cyan_gradient_12"] { --callout-color: var(--cyan-gradient-12); }
+.callout[data-callout="cyan_gradient_13"] { --callout-color: var(--cyan-gradient-13); }
+.callout[data-callout="cyan_gradient_14"] { --callout-color: var(--cyan-gradient-14); }
+.callout[data-callout="cyan_gradient_15"] { --callout-color: var(--cyan-gradient-15); }
+
+.callout[data-callout="pink_gradient_1"] { --callout-color: var(--pink-gradient-1); }
+.callout[data-callout="pink_gradient_2"] { --callout-color: var(--pink-gradient-2); }
+.callout[data-callout="pink_gradient_3"] { --callout-color: var(--pink-gradient-3); }
+.callout[data-callout="pink_gradient_4"] { --callout-color: var(--pink-gradient-4); }
+.callout[data-callout="pink_gradient_5"] { --callout-color: var(--pink-gradient-5); }
+.callout[data-callout="pink_gradient_6"] { --callout-color: var(--pink-gradient-6); }
+.callout[data-callout="pink_gradient_7"] { --callout-color: var(--pink-gradient-7); }
+.callout[data-callout="pink_gradient_8"] { --callout-color: var(--pink-gradient-8); }
+.callout[data-callout="pink_gradient_9"] { --callout-color: var(--pink-gradient-9); }
+.callout[data-callout="pink_gradient_10"] { --callout-color: var(--pink-gradient-10); }
+.callout[data-callout="pink_gradient_11"] { --callout-color: var(--pink-gradient-11); }
+.callout[data-callout="pink_gradient_12"] { --callout-color: var(--pink-gradient-12); }
+.callout[data-callout="pink_gradient_13"] { --callout-color: var(--pink-gradient-13); }
+.callout[data-callout="pink_gradient_14"] { --callout-color: var(--pink-gradient-14); }
+.callout[data-callout="pink_gradient_15"] { --callout-color: var(--pink-gradient-15); }
+
+/* Gradient Callout Settings */
+div.callout[data-callout*="gradient"] {
+    border: solid 2px;
+    border-radius: 10px;
+    padding: 12px 20px 20px 20px;
+    border-color: rgba(var(--callout-color), 0.35);
+    --link-color: rgb(var(--callout-color));
+    background-color: var(--background-primary); 
+    
+    /* Remove Icons */
+    .callout-icon {
+      display: none;
+    }
+    
+    /* Callout Title Adjustments */
+    .callout-title-inner {
+      font-family: var(--callout-title-font-family);
+      font-weight: var(--callout-title-font-weight);
+      font-size: var(--callout-title-font-size);
+      color: rgb(var(--callout-color));
+    }
+  
+    /* Change Color of Text Inside Callout and Format */
+    p {
+      color: rgb(var(--callout-color));
+      margin: 14px 0px 0px 0px;
+      font-family: var(--callout-font);
+      font-size: var(--callout-font-size);
+    }
+  
+    img {
+      /* Image Size in Gradient Callouts */
+      height: 75px;
+      width: 75px;
+
+      /* Convert Image inside to Gradient Callouts into Callout Color */
+      filter: drop-shadow(0px 1000px 0 rgb(var(--callout-color)));
+      transform: translateY(-1000px);
+    }
+  }
+
+/* Hover effect for the hovered callout */
+.callout[data-callout*="gradient"]:hover {
+  border-width: 5px;
+  padding: 9px 17px 17px 17px; /* Adjust padding to compensate for increased border width */
+  background-color: rgba(var(--callout-color), 0.15);
+}
+.callout[data-callout*="gradient"] {
+  transition: opacity 0.3s; /* Add a smooth transition effect */
+}
+
+/* Dim all other callouts when hovering */
+.callout[data-callout="multi-column"]:has(.callout[data-callout*="gradient"]:hover) .callout[data-callout*="gradient"]:not(:hover) {
+  opacity: 0.3;
+}
