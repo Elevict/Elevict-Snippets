@@ -10,7 +10,7 @@ This collection of CSS snippets is designed to enhance the functionality and app
    Adds wave-like animations and effects to your theme.
 
 2. **Colored Sidebar Items**  
-   Customizes colors for sidebar folders and files. Inspired by [CyanVoxel](https://github.com/CyanVoxel/Obsidian-Colored-Sidebar).
+   Customizes colors for sidebar folders and files. Originally by [CyanVoxel](https://github.com/CyanVoxel/Obsidian-Colored-Sidebar), but refactored to be compatible with newer obsidian versions and easier to edit.
 
 <p align="center">
 <img src="https://github.com/user-attachments/assets/7f903c23-8e76-41ee-b349-fec72158356e" width="500" style="border-radius:8px; box-shadow:0 4px 8px rgba(0, 0, 0, 0.2);"/>
