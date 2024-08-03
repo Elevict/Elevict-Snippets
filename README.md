@@ -26,7 +26,8 @@ This collection of CSS snippets is designed to enhance the functionality and app
 4. **Gradient Headers**  
    Offers gradient headers that match the gradient callouts.
 
-5. **Hoverable Dropdown**
+
+5. **Hoverable Dropdown**  
    Creates a dropdown menu that appears when hovering over a specified element. Suitable for navigation and interactive elements.
 
 7. **Mathematics Callouts**  
