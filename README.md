@@ -23,12 +23,15 @@ This collection of CSS snippets is designed to enhance the functionality and app
    <img src="https://github.com/user-attachments/assets/ef563c03-69cd-42b9-b33d-44e85f1d10ef" width="500" style="border-radius:8px; box-shadow:0 4px 8px rgba(0, 0, 0, 0.2);"/>
    </p>
 
-4. **Mathematics Callouts**  
+4. **Gradient Headers**  
+   Offers gradient headers that match the gradient callouts.
+
+5. **Hoverable Dropdown**
+   Creates a dropdown menu that appears when hovering over a specified element. Suitable for navigation and interactive elements.
+
+7. **Mathematics Callouts**  
    Provides callouts for mathematical theorems, definitions, and problems with seven distinct styles.
 
    <p align="center">
    <img src="https://github.com/user-attachments/assets/c162cef1-f3b2-45a7-833b-2424fdf28814" width="600" style="border-radius:8px; box-shadow:0 4px 8px rgba(0, 0, 0, 0.2);"/>
    </p>
-
-5. **Gradient Headers**  
-   Offers gradient headers that match the gradient callouts.
