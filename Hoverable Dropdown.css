@@ -98,6 +98,7 @@
 
     --item-gap: 6px;
     background-color: transparent;
+    border-color: transparent;
     --link-color: var(--custom-background-color);
     --link-color-hover: var(--custom-background-color);
     margin: 0;
