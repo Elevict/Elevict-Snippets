@@ -1,0 +1,630 @@
+/*
+Author: Elevict
+Date: Last updated August 8th, 2024
+Description: A series of gradient callouts and gradient headers
+for designing a homepage. Requires the MCL snippet to have gradient callouts
+properly function.
+*/
+
+/* @settings
+name: Gradient Callout and Header Settings
+id: gradient-callout-settings
+settings:
+# Gradient Callouts
+    -
+        title: Gradient Callout Settings
+        type: heading
+        level: 1
+        collapsed: true
+# Colors
+    # Fonts
+    - 
+        id: callout-font
+        title: Callout Text Font
+        description: Font used for content in the callout
+        type: variable-text
+        default: 'Sans-serif'
+    - 
+        id: callout-title-font-family
+        title: Callout Title Font
+        description: Font used for the title of the callouts
+        type: variable-text
+        default: 'Sans-serif'
+    -   
+        id: callout-font-size
+        title: Callout Text Size
+        type: variable-number
+        description: Callout content text size in pt
+        default: 10
+        format: pt
+    -
+        id: callout-title-font-size
+        title: Callout Title Size
+        description: Callout title text size in pt
+        type: variable-number
+        default: 12
+        format: pt
+    -
+        id: callout-opacity-dim
+        title: Callout Opacity Dimness
+        description: Sets transparency of surrounding callouts when hovering
+        type: variable-number-slider
+        default: 0.3
+        min: 0
+        max: 1
+        step: 0.05
+    -   
+        id: callout-title-font-weight
+        title: Callout Title Font Weight
+        descripotion: How bold the title appears
+        type: variable-number-slider
+        default: 700
+        min: 0
+        max: 1000
+        step: 100
+    -
+        id: border-radius
+        title: Callout Radius
+        description: Adjust the border radius of the callout
+        type: variable-number
+        default: 10
+        format: px
+    # Image Size
+    -
+        title: Image Settings
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: image-height
+        title: Image Height
+        description: Callout image height in px
+        type: variable-number
+        default: 75
+        format: px
+    -
+        id: image-width
+        title: Image Width
+        description: Callout image width in px
+        type: variable-number
+        default: 75
+        format: px
+    # Colors
+    -
+        title: Gradient Overrides
+        type: heading
+        level: 2
+        collapsed: true
+    - 
+        id: gradient-1-start
+        title: Gradient Primary Start
+        type: variable-themed-color
+        opacity: false
+        format: rgb
+        default-light: '#'
+        default-dark: '#'
+    - 
+        id: gradient-1-end
+        title: Gradient Primary End
+        type: variable-themed-color
+        opacity: false
+        format: rgb
+        default-light: '#'
+        default-dark: '#'
+    - 
+        id: gradient-2-start
+        title: Gradient Secondary Start
+        type: variable-themed-color
+        opacity: false
+        format: rgb
+        default-light: '#'
+        default-dark: '#'
+    - 
+        id: gradient-2-end
+        title: Gradient Secondary End
+        type: variable-themed-color
+        opacity: false
+        format: rgb
+        default-light: '#'
+        default-dark: '#'
+    - 
+        id: gradient-3-start
+        title: Gradient Tertiary Start
+        type: variable-themed-color
+        opacity: false
+        format: rgb
+        default-light: '#'
+        default-dark: '#'
+    - 
+        id: gradient-3-end
+        title: Gradient Tertiary End
+        type: variable-themed-color
+        opacity: false
+        format: rgb
+        default-light: '#'
+        default-dark: '#'
+    - 
+        id: gradient-4-start
+        title: Gradient Quaternary Start
+        type: variable-themed-color
+        opacity: false
+        format: rgb
+        default-light: '#'
+        default-dark: '#'
+    - 
+        id: gradient-4-end
+        title: Gradient Quaternary End
+        type: variable-themed-color
+        opacity: false
+        format: rgb
+        default-light: '#'
+        default-dark: '#'
+    - 
+        id: gradient-5-start
+        title: Gradient Quinary Start
+        type: variable-themed-color
+        opacity: false
+        format: rgb
+        default-light: '#'
+        default-dark: '#'
+    - 
+        id: gradient-5-end
+        title: Gradient Quinary End
+        type: variable-themed-color
+        opacity: false
+        format: rgb
+        default-light: '#'
+        default-dark: '#'
+    # Gradient Headers
+    -
+        title: Gradient Headers
+        type: heading
+        level: 1
+        collapsed: true
+    # Styling
+    - 
+        id: header-font-family
+        title: Header Font Type
+        description: Font used for text in the header
+        type: variable-text
+        default: 'Trebuchet MS'
+    -   
+        id: header-font-size
+        title: Header Font Size
+        type: variable-number
+        description: Header text size in pt
+        default: 22
+        format: pt
+    -   
+        id: header-font-weight
+        title: Header Font Weight
+        type: variable-number-slider
+        default: 100
+        min: 0
+        max: 1000
+        step: 100
+    -   
+        id: gradient-header-location
+        title: Center Heading
+        description: Centers your headings
+        type: class-toggle
+    -
+        title: Border Settings
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: gradient-border
+        title: Enable Borders
+        description: Enables heading borders
+        type: class-toggle
+    - 
+        id: header-gradient-border-size
+        title: Border Size
+        type: variable-number
+        default: 2
+        format: px
+    -   
+        id: header-gradient-border-radius
+        title: Border Radius
+        type: variable-number
+        default: 10
+        format: px
+*/
+
+
+/* ============== Callout Variables ============== */
+
+body {
+  /* Gradient Callout Settings */
+  --callout-font: Sans-serif;
+  --callout-title-font-family: Sans-serif;
+  --callout-font-size: 10pt;
+  --callout-title-font-weight: 700;
+  --callout-title-font-size: 12pt;
+  --callout-opacity-dim: 0.3;
+  --image-height: 75px;
+  --image-width: 75px;
+  --border-radius: 10px;
+
+  /* Gradient Callouts */
+  --gradient-1-start: rgb(45, 34, 198);
+  --gradient-1-end: rgb(235, 30, 245);
+
+  --gradient-2-start: rgb(34, 199, 50);
+  --gradient-2-end: rgb(219, 210, 29);
+
+  --gradient-3-start: rgb(199, 169, 34);
+  --gradient-3-end: rgb(219, 29, 29);
+
+  --gradient-4-start: rgb(33, 59, 255);
+  --gradient-4-end: rgb(0, 255, 179);
+
+  --gradient-5-start: rgb(255, 0, 191);
+  --gradient-5-end: rgb(255, 0, 115);
+
+  --gradient-1-1: color-mix(in srgb, var(--gradient-1-end) 0%, var(--gradient-1-start) 100%);
+  --gradient-1-2: color-mix(in srgb, var(--gradient-1-end) 6.25%, var(--gradient-1-start) 93.75%);
+  --gradient-1-3: color-mix(in srgb, var(--gradient-1-end) 12.5%, var(--gradient-1-start) 87.5%);
+  --gradient-1-4: color-mix(in srgb, var(--gradient-1-end) 18.75%, var(--gradient-1-start) 81.25%);
+  --gradient-1-5: color-mix(in srgb, var(--gradient-1-end) 25%, var(--gradient-1-start) 75%);
+  --gradient-1-6: color-mix(in srgb, var(--gradient-1-end) 31.25%, var(--gradient-1-start) 68.75%);
+  --gradient-1-7: color-mix(in srgb, var(--gradient-1-end) 37.5%, var(--gradient-1-start) 62.5%);
+  --gradient-1-8: color-mix(in srgb, var(--gradient-1-end) 43.75%, var(--gradient-1-start) 56.25%);
+  --gradient-1-9: color-mix(in srgb, var(--gradient-1-end) 50%, var(--gradient-1-start) 50%);
+  --gradient-1-10: color-mix(in srgb, var(--gradient-1-end) 56.25%, var(--gradient-1-start) 43.75%);
+  --gradient-1-11: color-mix(in srgb, var(--gradient-1-end) 62.5%, var(--gradient-1-start) 37.5%);
+  --gradient-1-12: color-mix(in srgb, var(--gradient-1-end) 68.75%, var(--gradient-1-start) 31.25%);
+  --gradient-1-13: color-mix(in srgb, var(--gradient-1-end) 75%, var(--gradient-1-start) 25%);
+  --gradient-1-14: color-mix(in srgb, var(--gradient-1-end) 81.25%, var(--gradient-1-start) 18.75%);
+  --gradient-1-15: color-mix(in srgb, var(--gradient-1-end) 87.5%, var(--gradient-1-start) 12.5%);
+  --gradient-1-16: color-mix(in srgb, var(--gradient-1-end) 93.75%, var(--gradient-1-start) 6.25%);
+  --gradient-1-17: color-mix(in srgb, var(--gradient-1-end) 100%, var(--gradient-1-start) 0%);
+
+  --gradient-2-1: color-mix(in srgb, var(--gradient-2-end) 0%, var(--gradient-2-start) 100%);
+  --gradient-2-2: color-mix(in srgb, var(--gradient-2-end) 6.25%, var(--gradient-2-start) 93.75%);
+  --gradient-2-3: color-mix(in srgb, var(--gradient-2-end) 12.5%, var(--gradient-2-start) 87.5%);
+  --gradient-2-4: color-mix(in srgb, var(--gradient-2-end) 18.75%, var(--gradient-2-start) 81.25%);
+  --gradient-2-5: color-mix(in srgb, var(--gradient-2-end) 25%, var(--gradient-2-start) 75%);
+  --gradient-2-6: color-mix(in srgb, var(--gradient-2-end) 31.25%, var(--gradient-2-start) 68.75%);
+  --gradient-2-7: color-mix(in srgb, var(--gradient-2-end) 37.5%, var(--gradient-2-start) 62.5%);
+  --gradient-2-8: color-mix(in srgb, var(--gradient-2-end) 43.75%, var(--gradient-2-start) 56.25%);
+  --gradient-2-9: color-mix(in srgb, var(--gradient-2-end) 50%, var(--gradient-2-start) 50%);
+  --gradient-2-10: color-mix(in srgb, var(--gradient-2-end) 56.25%, var(--gradient-2-start) 43.75%);
+  --gradient-2-11: color-mix(in srgb, var(--gradient-2-end) 62.5%, var(--gradient-2-start) 37.5%);
+  --gradient-2-12: color-mix(in srgb, var(--gradient-2-end) 68.75%, var(--gradient-2-start) 31.25%);
+  --gradient-2-13: color-mix(in srgb, var(--gradient-2-end) 75%, var(--gradient-2-start) 25%);
+  --gradient-2-14: color-mix(in srgb, var(--gradient-2-end) 81.25%, var(--gradient-2-start) 18.75%);
+  --gradient-2-15: color-mix(in srgb, var(--gradient-2-end) 87.5%, var(--gradient-2-start) 12.5%);
+  --gradient-2-16: color-mix(in srgb, var(--gradient-2-end) 93.75%, var(--gradient-2-start) 6.25%);
+  --gradient-2-17: color-mix(in srgb, var(--gradient-2-end) 100%, var(--gradient-2-start) 0%);
+
+  --gradient-3-1: color-mix(in srgb, var(--gradient-3-end) 0%, var(--gradient-3-start) 100%);
+  --gradient-3-2: color-mix(in srgb, var(--gradient-3-end) 6.25%, var(--gradient-3-start) 93.75%);
+  --gradient-3-3: color-mix(in srgb, var(--gradient-3-end) 12.5%, var(--gradient-3-start) 87.5%);
+  --gradient-3-4: color-mix(in srgb, var(--gradient-3-end) 18.75%, var(--gradient-3-start) 81.25%);
+  --gradient-3-5: color-mix(in srgb, var(--gradient-3-end) 25%, var(--gradient-3-start) 75%);
+  --gradient-3-6: color-mix(in srgb, var(--gradient-3-end) 31.25%, var(--gradient-3-start) 68.75%);
+  --gradient-3-7: color-mix(in srgb, var(--gradient-3-end) 37.5%, var(--gradient-3-start) 62.5%);
+  --gradient-3-8: color-mix(in srgb, var(--gradient-3-end) 43.75%, var(--gradient-3-start) 56.25%);
+  --gradient-3-9: color-mix(in srgb, var(--gradient-3-end) 50%, var(--gradient-3-start) 50%);
+  --gradient-3-10: color-mix(in srgb, var(--gradient-3-end) 56.25%, var(--gradient-3-start) 43.75%);
+  --gradient-3-11: color-mix(in srgb, var(--gradient-3-end) 62.5%, var(--gradient-3-start) 37.5%);
+  --gradient-3-12: color-mix(in srgb, var(--gradient-3-end) 68.75%, var(--gradient-3-start) 31.25%);
+  --gradient-3-13: color-mix(in srgb, var(--gradient-3-end) 75%, var(--gradient-3-start) 25%);
+  --gradient-3-14: color-mix(in srgb, var(--gradient-3-end) 81.25%, var(--gradient-3-start) 18.75%);
+  --gradient-3-15: color-mix(in srgb, var(--gradient-3-end) 87.5%, var(--gradient-3-start) 12.5%);
+  --gradient-3-16: color-mix(in srgb, var(--gradient-3-end) 93.75%, var(--gradient-3-start) 6.25%);
+  --gradient-3-17: color-mix(in srgb, var(--gradient-3-end) 100%, var(--gradient-3-start) 0%);
+
+  --gradient-4-1: color-mix(in srgb, var(--gradient-4-end) 0%, var(--gradient-4-start) 100%);
+  --gradient-4-2: color-mix(in srgb, var(--gradient-4-end) 6.25%, var(--gradient-4-start) 93.75%);
+  --gradient-4-3: color-mix(in srgb, var(--gradient-4-end) 12.5%, var(--gradient-4-start) 87.5%);
+  --gradient-4-4: color-mix(in srgb, var(--gradient-4-end) 18.75%, var(--gradient-4-start) 81.25%);
+  --gradient-4-5: color-mix(in srgb, var(--gradient-4-end) 25%, var(--gradient-4-start) 75%);
+  --gradient-4-6: color-mix(in srgb, var(--gradient-4-end) 31.25%, var(--gradient-4-start) 68.75%);
+  --gradient-4-7: color-mix(in srgb, var(--gradient-4-end) 37.5%, var(--gradient-4-start) 62.5%);
+  --gradient-4-8: color-mix(in srgb, var(--gradient-4-end) 43.75%, var(--gradient-4-start) 56.25%);
+  --gradient-4-9: color-mix(in srgb, var(--gradient-4-end) 50%, var(--gradient-4-start) 50%);
+  --gradient-4-10: color-mix(in srgb, var(--gradient-4-end) 56.25%, var(--gradient-4-start) 43.75%);
+  --gradient-4-11: color-mix(in srgb, var(--gradient-4-end) 62.5%, var(--gradient-4-start) 37.5%);
+  --gradient-4-12: color-mix(in srgb, var(--gradient-4-end) 68.75%, var(--gradient-4-start) 31.25%);
+  --gradient-4-13: color-mix(in srgb, var(--gradient-4-end) 75%, var(--gradient-4-start) 25%);
+  --gradient-4-14: color-mix(in srgb, var(--gradient-4-end) 81.25%, var(--gradient-4-start) 18.75%);
+  --gradient-4-15: color-mix(in srgb, var(--gradient-4-end) 87.5%, var(--gradient-4-start) 12.5%);
+  --gradient-4-16: color-mix(in srgb, var(--gradient-4-end) 93.75%, var(--gradient-4-start) 6.25%);
+  --gradient-4-17: color-mix(in srgb, var(--gradient-4-end) 100%, var(--gradient-4-start) 0%);
+
+  --gradient-5-1: color-mix(in srgb, var(--gradient-5-end) 0%, var(--gradient-5-start) 100%);
+  --gradient-5-2: color-mix(in srgb, var(--gradient-5-end) 6.25%, var(--gradient-5-start) 93.75%);
+  --gradient-5-3: color-mix(in srgb, var(--gradient-5-end) 12.5%, var(--gradient-5-start) 87.5%);
+  --gradient-5-4: color-mix(in srgb, var(--gradient-5-end) 18.75%, var(--gradient-5-start) 81.25%);
+  --gradient-5-5: color-mix(in srgb, var(--gradient-5-end) 25%, var(--gradient-5-start) 75%);
+  --gradient-5-6: color-mix(in srgb, var(--gradient-5-end) 31.25%, var(--gradient-5-start) 68.75%);
+  --gradient-5-7: color-mix(in srgb, var(--gradient-5-end) 37.5%, var(--gradient-5-start) 62.5%);
+  --gradient-5-8: color-mix(in srgb, var(--gradient-5-end) 43.75%, var(--gradient-5-start) 56.25%);
+  --gradient-5-9: color-mix(in srgb, var(--gradient-5-end) 50%, var(--gradient-5-start) 50%);
+  --gradient-5-10: color-mix(in srgb, var(--gradient-5-end) 56.25%, var(--gradient-5-start) 43.75%);
+  --gradient-5-11: color-mix(in srgb, var(--gradient-5-end) 62.5%, var(--gradient-5-start) 37.5%);
+  --gradient-5-12: color-mix(in srgb, var(--gradient-5-end) 68.75%, var(--gradient-5-start) 31.25%);
+  --gradient-5-13: color-mix(in srgb, var(--gradient-5-end) 75%, var(--gradient-5-start) 25%);
+  --gradient-5-14: color-mix(in srgb, var(--gradient-5-end) 81.25%, var(--gradient-5-start) 18.75%);
+  --gradient-5-15: color-mix(in srgb, var(--gradient-5-end) 87.5%, var(--gradient-5-start) 12.5%);
+  --gradient-5-16: color-mix(in srgb, var(--gradient-5-end) 93.75%, var(--gradient-5-start) 6.25%);
+  --gradient-5-17: color-mix(in srgb, var(--gradient-1-end) 100%, var(--gradient-1-start) 0%);
+}
+
+/* Apply Colors to Callouts */
+.callout[data-callout="gradient_1_1"] { --callout-color: var(--gradient-1-1); }
+.callout[data-callout="gradient_1_2"] { --callout-color: var(--gradient-1-2); }
+.callout[data-callout="gradient_1_3"] { --callout-color: var(--gradient-1-3); }
+.callout[data-callout="gradient_1_4"] { --callout-color: var(--gradient-1-4); }
+.callout[data-callout="gradient_1_5"] { --callout-color: var(--gradient-1-5); }
+.callout[data-callout="gradient_1_6"] { --callout-color: var(--gradient-1-6); }
+.callout[data-callout="gradient_1_7"] { --callout-color: var(--gradient-1-7); }
+.callout[data-callout="gradient_1_8"] { --callout-color: var(--gradient-1-8); }
+.callout[data-callout="gradient_1_9"] { --callout-color: var(--gradient-1-9); }
+.callout[data-callout="gradient_1_10"] { --callout-color: var(--gradient-1-10); }
+.callout[data-callout="gradient_1_11"] { --callout-color: var(--gradient-1-11); }
+.callout[data-callout="gradient_1_12"] { --callout-color: var(--gradient-1-12); }
+.callout[data-callout="gradient_1_13"] { --callout-color: var(--gradient-1-13); }
+.callout[data-callout="gradient_1_14"] { --callout-color: var(--gradient-1-14); }
+.callout[data-callout="gradient_1_15"] { --callout-color: var(--gradient-1-15); }
+.callout[data-callout="gradient_1_16"] { --callout-color: var(--gradient-1-16); }
+.callout[data-callout="gradient_1_17"] { --callout-color: var(--gradient-1-17); }
+
+.callout[data-callout="gradient_2_1"] { --callout-color: var(--gradient-2-1); }
+.callout[data-callout="gradient_2_2"] { --callout-color: var(--gradient-2-2); }
+.callout[data-callout="gradient_2_3"] { --callout-color: var(--gradient-2-3); }
+.callout[data-callout="gradient_2_4"] { --callout-color: var(--gradient-2-4); }
+.callout[data-callout="gradient_2_5"] { --callout-color: var(--gradient-2-5); }
+.callout[data-callout="gradient_2_6"] { --callout-color: var(--gradient-2-6); }
+.callout[data-callout="gradient_2_7"] { --callout-color: var(--gradient-2-7); }
+.callout[data-callout="gradient_2_8"] { --callout-color: var(--gradient-2-8); }
+.callout[data-callout="gradient_2_9"] { --callout-color: var(--gradient-2-9); }
+.callout[data-callout="gradient_2_10"] { --callout-color: var(--gradient-2-10); }
+.callout[data-callout="gradient_2_11"] { --callout-color: var(--gradient-2-11); }
+.callout[data-callout="gradient_2_12"] { --callout-color: var(--gradient-2-12); }
+.callout[data-callout="gradient_2_13"] { --callout-color: var(--gradient-2-13); }
+.callout[data-callout="gradient_2_14"] { --callout-color: var(--gradient-2-14); }
+.callout[data-callout="gradient_2_15"] { --callout-color: var(--gradient-2-15); }
+.callout[data-callout="gradient_2_16"] { --callout-color: var(--gradient-2-16); }
+.callout[data-callout="gradient_2_17"] { --callout-color: var(--gradient-2-17); }
+
+.callout[data-callout="gradient_3_1"] { --callout-color: var(--gradient-3-1); }
+.callout[data-callout="gradient_3_2"] { --callout-color: var(--gradient-3-2); }
+.callout[data-callout="gradient_3_3"] { --callout-color: var(--gradient-3-3); }
+.callout[data-callout="gradient_3_4"] { --callout-color: var(--gradient-3-4); }
+.callout[data-callout="gradient_3_5"] { --callout-color: var(--gradient-3-5); }
+.callout[data-callout="gradient_3_6"] { --callout-color: var(--gradient-3-6); }
+.callout[data-callout="gradient_3_7"] { --callout-color: var(--gradient-3-7); }
+.callout[data-callout="gradient_3_8"] { --callout-color: var(--gradient-3-8); }
+.callout[data-callout="gradient_3_9"] { --callout-color: var(--gradient-3-9); }
+.callout[data-callout="gradient_3_10"] { --callout-color: var(--gradient-3-10); }
+.callout[data-callout="gradient_3_11"] { --callout-color: var(--gradient-3-11); }
+.callout[data-callout="gradient_3_12"] { --callout-color: var(--gradient-3-12); }
+.callout[data-callout="gradient_3_13"] { --callout-color: var(--gradient-3-13); }
+.callout[data-callout="gradient_3_14"] { --callout-color: var(--gradient-3-14); }
+.callout[data-callout="gradient_3_15"] { --callout-color: var(--gradient-3-15); }
+.callout[data-callout="gradient_3_16"] { --callout-color: var(--gradient-3-16); }
+.callout[data-callout="gradient_3_17"] { --callout-color: var(--gradient-3-17); }
+
+.callout[data-callout="gradient_4_1"] { --callout-color: var(--gradient-4-1); }
+.callout[data-callout="gradient_4_2"] { --callout-color: var(--gradient-4-2); }
+.callout[data-callout="gradient_4_3"] { --callout-color: var(--gradient-4-3); }
+.callout[data-callout="gradient_4_4"] { --callout-color: var(--gradient-4-4); }
+.callout[data-callout="gradient_4_5"] { --callout-color: var(--gradient-4-5); }
+.callout[data-callout="gradient_4_6"] { --callout-color: var(--gradient-4-6); }
+.callout[data-callout="gradient_4_7"] { --callout-color: var(--gradient-4-7); }
+.callout[data-callout="gradient_4_8"] { --callout-color: var(--gradient-4-8); }
+.callout[data-callout="gradient_4_9"] { --callout-color: var(--gradient-4-9); }
+.callout[data-callout="gradient_4_10"] { --callout-color: var(--gradient-4-10); }
+.callout[data-callout="gradient_4_11"] { --callout-color: var(--gradient-4-11); }
+.callout[data-callout="gradient_4_12"] { --callout-color: var(--gradient-4-12); }
+.callout[data-callout="gradient_4_13"] { --callout-color: var(--gradient-4-13); }
+.callout[data-callout="gradient_4_14"] { --callout-color: var(--gradient-4-14); }
+.callout[data-callout="gradient_4_15"] { --callout-color: var(--gradient-4-15); }
+.callout[data-callout="gradient_4_16"] { --callout-color: var(--gradient-4-16); }
+.callout[data-callout="gradient_4_17"] { --callout-color: var(--gradient-4-17); }
+
+.callout[data-callout="gradient_5_1"] { --callout-color: var(--gradient-5-1); }
+.callout[data-callout="gradient_5_2"] { --callout-color: var(--gradient-5-2); }
+.callout[data-callout="gradient_5_3"] { --callout-color: var(--gradient-5-3); }
+.callout[data-callout="gradient_5_4"] { --callout-color: var(--gradient-5-4); }
+.callout[data-callout="gradient_5_5"] { --callout-color: var(--gradient-5-5); }
+.callout[data-callout="gradient_5_6"] { --callout-color: var(--gradient-5-6); }
+.callout[data-callout="gradient_5_7"] { --callout-color: var(--gradient-5-7); }
+.callout[data-callout="gradient_5_8"] { --callout-color: var(--gradient-5-8); }
+.callout[data-callout="gradient_5_9"] { --callout-color: var(--gradient-5-9); }
+.callout[data-callout="gradient_5_10"] { --callout-color: var(--gradient-5-10); }
+.callout[data-callout="gradient_5_11"] { --callout-color: var(--gradient-5-11); }
+.callout[data-callout="gradient_5_12"] { --callout-color: var(--gradient-5-12); }
+.callout[data-callout="gradient_5_13"] { --callout-color: var(--gradient-5-13); }
+.callout[data-callout="gradient_5_14"] { --callout-color: var(--gradient-5-14); }
+.callout[data-callout="gradient_5_15"] { --callout-color: var(--gradient-5-15); }
+.callout[data-callout="gradient_5_16"] { --callout-color: var(--gradient-5-16); }
+.callout[data-callout="gradient_5_17"] { --callout-color: var(--gradient-5-17); }
+
+/* Gradient Callout Settings */
+.callout[data-callout*="gradient"] {
+    --callout-background: var(--background-primary);
+    border: solid 2px;
+    border-radius: var(--border-radius);
+    padding: 12px 20px 20px 20px;
+    border-color: color-mix(in srgb, var(--background-primary) 100%, var(--callout-color) 30%);
+    --link-color: var(--callout-color);
+
+    /* Remove Icons */
+    .callout-icon {
+      display: none;
+    }
+    
+    /* Callout Title Adjustments */
+    .callout-title-inner {
+      font-family: var(--callout-title-font-family);
+      font-weight: var(--callout-title-font-weight);
+      font-size: var(--callout-title-font-size);
+      color: var(--callout-color);
+    }
+  
+    /* Change Color of Text Inside Callout and Format */
+    p {
+      color: var(--callout-color);
+      margin: 14px 0px 0px 0px;
+      font-family: var(--callout-font);
+      font-size: var(--callout-font-size);
+    }
+  
+    img {
+      /* Image Size in Gradient Callouts */
+      height: var(--image-height);
+      width: var(--image-width);
+      display: block;
+      margin: auto;
+
+      /* Convert Image inside to Gradient Callouts into Callout Color */
+      filter: drop-shadow(0px 1000px 0 var(--callout-color));
+      transform: translateY(-1000px);
+    }
+}
+
+/* Hover effect for the hovered callout */
+.callout[data-callout*="gradient"]:hover {
+  border-width: 5px;
+  padding: 9px 17px 17px 17px; /* Adjust padding to compensate for increased border width */
+  background-color: color-mix(in srgb, var(--callout-background) 100%, var(--callout-color) 15%);
+}
+
+.callout[data-callout*="gradient"] {
+  transition: opacity 0.5s; /* Add a smooth transition effect */
+}
+
+/* Dim all other callouts when hovering */
+.callout[data-callout="multi-column"]:has(.callout[data-callout*="gradient"]:hover) .callout[data-callout*="gradient"]:not(:hover) {
+  opacity: var(--callout-opacity-dim);
+}
+
+body{
+  /* Gradient Header Default Settings */
+  --header-font-family: 'Trebuchet MS';
+  --header-font-size: 22pt;
+  --header-font-weight: 100;
+  --header-text-location: left;
+  --header-gradient-border-size: 1px;
+  --header-gradient-border-radius: 10px;
+}
+
+.gradient_1_1 { color: var(--gradient-1-1) !important; }
+.gradient_1_2 { color: var(--gradient-1-2) !important; }
+.gradient_1_3 { color: var(--gradient-1-3) !important; }
+.gradient_1_4 { color: var(--gradient-1-4) !important; }
+.gradient_1_5 { color: var(--gradient-1-5) !important; }
+.gradient_1_6 { color: var(--gradient-1-6) !important; }
+.gradient_1_7 { color: var(--gradient-1-7) !important; }
+.gradient_1_8 { color: var(--gradient-1-8) !important; }
+.gradient_1_9 { color: var(--gradient-1-9) !important; }
+.gradient_1_10 { color: var(--gradient-1-10) !important; }
+.gradient_1_11 { color: var(--gradient-1-11) !important; }
+.gradient_1_12 { color: var(--gradient-1-12) !important; }
+.gradient_1_13 { color: var(--gradient-1-13) !important; }
+.gradient_1_14 { color: var(--gradient-1-14) !important; }
+.gradient_1_15 { color: var(--gradient-1-15) !important; }
+.gradient_1_16 { color: var(--gradient-1-16) !important; }
+
+.gradient_2_1 { color: var(--gradient-2-1) !important; }
+.gradient_2_2 { color: var(--gradient-2-2) !important; }
+.gradient_2_3 { color: var(--gradient-2-3) !important; }
+.gradient_2_4 { color: var(--gradient-2-4) !important; }
+.gradient_2_5 { color: var(--gradient-2-5) !important; }
+.gradient_2_6 { color: var(--gradient-2-6) !important; }
+.gradient_2_7 { color: var(--gradient-2-7) !important; }
+.gradient_2_8 { color: var(--gradient-2-8) !important; }
+.gradient_2_9 { color: var(--gradient-2-9) !important; }
+.gradient_2_10 { color: var(--gradient-2-10) !important; }
+.gradient_2_11 { color: var(--gradient-2-11) !important; }
+.gradient_2_12 { color: var(--gradient-2-12) !important; }
+.gradient_2_13 { color: var(--gradient-2-13) !important; }
+.gradient_2_14 { color: var(--gradient-2-14) !important; }
+.gradient_2_15 { color: var(--gradient-2-15) !important; }
+.gradient_1_16 { color: var(--gradient-1-16) !important; }
+
+.gradient_3_1 { color: var(--gradient-3-1) !important; }
+.gradient_3_2 { color: var(--gradient-3-2) !important; }
+.gradient_3_3 { color: var(--gradient-3-3) !important; }
+.gradient_3_4 { color: var(--gradient-3-4) !important; }
+.gradient_3_5 { color: var(--gradient-3-5) !important; }
+.gradient_3_6 { color: var(--gradient-3-6) !important; }
+.gradient_3_7 { color: var(--gradient-3-7) !important; }
+.gradient_3_8 { color: var(--gradient-3-8) !important; }
+.gradient_3_9 { color: var(--gradient-3-9) !important; }
+.gradient_3_10 { color: var(--gradient-3-10) !important; }
+.gradient_3_11 { color: var(--gradient-3-11) !important; }
+.gradient_3_12 { color: var(--gradient-3-12) !important; }
+.gradient_3_13 { color: var(--gradient-3-13) !important; }
+.gradient_3_14 { color: var(--gradient-3-14) !important; }
+.gradient_3_15 { color: var(--gradient-3-15) !important; }
+.gradient_1_16 { color: var(--gradient-1-16) !important; }
+
+.gradient_4_1 { color: var(--gradient-4-1) !important; }
+.gradient_4_2 { color: var(--gradient-4-2) !important; }
+.gradient_4_3 { color: var(--gradient-4-3) !important; }
+.gradient_4_4 { color: var(--gradient-4-4) !important; }
+.gradient_4_5 { color: var(--gradient-4-5) !important; }
+.gradient_4_6 { color: var(--gradient-4-6) !important; }
+.gradient_4_7 { color: var(--gradient-4-7) !important; }
+.gradient_4_8 { color: var(--gradient-4-8) !important; }
+.gradient_4_9 { color: var(--gradient-4-9) !important; }
+.gradient_4_10 { color: var(--gradient-4-10) !important; }
+.gradient_4_11 { color: var(--gradient-4-11) !important; }
+.gradient_4_12 { color: var(--gradient-4-12) !important; }
+.gradient_4_13 { color: var(--gradient-4-13) !important; }
+.gradient_4_14 { color: var(--gradient-4-14) !important; }
+.gradient_4_15 { color: var(--gradient-4-15) !important; }
+.gradient_1_16 { color: var(--gradient-1-16) !important; }
+
+.gradient_5_1 { color: var(--gradient-5-1) !important; }
+.gradient_5_2 { color: var(--gradient-5-2) !important; }
+.gradient_5_3 { color: var(--gradient-5-3) !important; }
+.gradient_5_4 { color: var(--gradient-5-4) !important; }
+.gradient_5_5 { color: var(--gradient-5-5) !important; }
+.gradient_5_6 { color: var(--gradient-5-6) !important; }
+.gradient_5_7 { color: var(--gradient-5-7) !important; }
+.gradient_5_8 { color: var(--gradient-5-8) !important; }
+.gradient_5_9 { color: var(--gradient-5-9) !important; }
+.gradient_5_10 { color: var(--gradient-5-10) !important; }
+.gradient_5_11 { color: var(--gradient-5-11) !important; }
+.gradient_5_12 { color: var(--gradient-5-12) !important; }
+.gradient_5_13 { color: var(--gradient-5-13) !important; }
+.gradient_5_14 { color: var(--gradient-5-14) !important; }
+.gradient_5_15 { color: var(--gradient-5-15) !important; }
+.gradient_1_16 { color: var(--gradient-1-16) !important; }
+
+/* Togglable CSS Classes */
+.gradient-header-location{
+    --header-text-location: center;
+  }
+  
+  .gradient-border{
+    [class*="gradient_"] {
+      border: var(--header-gradient-border-size) solid;
+      border-radius: var(--header-gradient-border-radius);
+    }
+  }
+  
+  /* Keyframes for slide-in animation */
+  @keyframes slideIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  /* Base Gradient Header Style */
+  [class*="gradient_"] {
+    font-size: var(--header-font-size) !important;
+    font-family: var(--header-font-family) !important;
+    text-align: var(--header-text-location);
+    font-weight: var(--header-font-weight) !important;
+  
+    padding: 10px 0 16px 0;
+    animation: slideIn 2s ease-out;
+    position: relative;
+  }
