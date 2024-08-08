@@ -2,7 +2,7 @@
 Made by Elevict
 
 Date: Last updated August 8th, 2024
-Description: A series of gradient callouts for designing a homepage. Requires
+Description: A series of gradient callouts for designing a homepage. Requires the
 MCL snippet to function.
 */
 
@@ -11,12 +11,13 @@ MCL snippet to function.
 name: Gradient Callout Settings
 id: gradient-callout-settings
 settings:
-    - 
+# Colors
+    -
         title: Colors
         type: heading
         level: 1
         collapsed: true
-    - 
+    -   
         title: Gradient 1
         type: heading
         level: 2
@@ -111,6 +112,7 @@ settings:
         opacity: false
         format: rgb
         default: 'rgb(255, 0, 115)'
+# Animations
     - 
         title: Animations
         type: heading
@@ -119,18 +121,58 @@ settings:
     -
         id: callout-opacity-dim
         title: Callout Opacity Dimness
-        description: This sets how transparent the surround callouts become when hovering.
+        description: This sets how transparent the surrounding callouts become when hovering.
         type: variable-number-slider
         default: 0.3
         min: 0
         max: 1
         step: 0.05
+# Fonts
+    - 
+        title: Fonts
+        type: heading
+        level: 1
+        collapsed: true
+    - 
+        id: callout-font
+        title: Callout Text Font
+        description: Font used for text in the callout
+        type: variable-text
+        default: 'Sans-serif'
+    - 
+        id: callout-title-font-family
+        title: Callout Title Font
+        description: Font used for the title of the callouts
+        type: variable-text
+        default: 'Sans-serif'
+    -   
+        id: callout-font-size
+        title: Callout Text Size
+        type: variable-number
+        default: 10
+        format: pt
+    -
+        id: callout-title-font-size
+        title: Callout Title Text Size
+        type: variable-number
+        default: 12
+        format: pt
+    -   
+        id: callout-title-font-weight
+        title: Callout Title Font Weight
+        descripotion: How bold the title appears
+        type: variable-number-slider
+        default: 700
+        min: 0
+        max: 1000
+        step: 100
+# Format
     -
         title: Format
         type: heading
         level: 1
         collapsed: true
-    -
+    -   
         id: image-height
         title: Image Height
         description: Image height size in callout
@@ -146,7 +188,7 @@ settings:
         format: px
     -
         id: border-radius
-        title: Callout radius
+        title: Callout Radius
         description: Adjust the radius of the callout
         type: variable-number
         default: 10
@@ -154,6 +196,7 @@ settings:
 */
 
 /* ============== Callout Variables ============== */
+
 body {
   /* Gradient Callout Settings */
   --callout-font: Sans-serif;
@@ -361,13 +404,13 @@ body {
 
 /* Gradient Callout Settings */
 .callout[data-callout*="gradient"] {
+    --callout-background: var(--background-primary);
     border: solid 2px;
     border-radius: var(--border-radius);
     padding: 12px 20px 20px 20px;
     border-color: color-mix(in srgb, var(--background-primary) 100%, var(--callout-color) 30%);
     --link-color: var(--callout-color);
-    background-color: var(--background-primary); 
-    
+
     /* Remove Icons */
     .callout-icon {
       display: none;
@@ -406,15 +449,14 @@ body {
 .callout[data-callout*="gradient"]:hover {
   border-width: 5px;
   padding: 9px 17px 17px 17px; /* Adjust padding to compensate for increased border width */
-  background-color: color-mix(in srgb, var(--background-primary) 100%, var(--callout-color) 15%);
+  background-color: color-mix(in srgb, var(--callout-background) 100%, var(--callout-color) 15%);
 }
 
 .callout[data-callout*="gradient"] {
-  transition: opacity 0.3s; /* Add a smooth transition effect */
+  transition: opacity 0.5s; /* Add a smooth transition effect */
 }
 
 /* Dim all other callouts when hovering */
 .callout[data-callout="multi-column"]:has(.callout[data-callout*="gradient"]:hover) .callout[data-callout*="gradient"]:not(:hover) {
   opacity: var(--callout-opacity-dim);
 }
-
