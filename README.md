@@ -17,7 +17,12 @@ This collection of CSS snippets is designed to enhance the functionality and app
 </p>
 
 3. **Gradient Callouts**  
-   Enables creation of dynamic homepages with gradient callouts. Requires the [MCL Multicolumn](https://github.com/efemkay/obsidian-modular-css-layout) snippet for full functionality. Images inserted into callouts should have transparent backgrounds as they automatically match the callout color.
+   Create dynamic homepages with gradient callouts. Requires the [MCL Multicolumn](https://github.com/efemkay/obsidian-modular-css-layout) snippet to work, so ensure callouts are placed within the MCL Multicolumn.
+
+   **Notes:**
+   1. You can only use images with a transparent background in the callouts, but they'll automatically match the callout color.
+   2. Format these callouts as `[!gradient_x_y]`, where `x` (1-5) represents the gradient and `y` (1-15) specifies the color.
+   3. The [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) snippet is recommended for customizing the callouts' appearance.
 
    <p align="center">
    <img src="https://github.com/user-attachments/assets/ef563c03-69cd-42b9-b33d-44e85f1d10ef" width="500" style="border-radius:8px; box-shadow:0 4px 8px rgba(0, 0, 0, 0.2);"/>
