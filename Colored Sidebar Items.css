@@ -1,6 +1,6 @@
 /*
 Obsidian Colored Sidebar Items by Originally created by CyanVoxel v2.0.0
-Refactored and edited by Elevict as of July 30, 2024
+Refactored and edited by Elevict as of August 8th, 2024
 
 This snippet targets folders beginning with numbered prefixes, and applies full
 color formatting based what you set the prefix variables below. You can add more prefix
@@ -9,8 +9,123 @@ for convenience sake. You can also rename "date-path^=" into anything you want s
 targetted that does not have an index.
 */
 
+/* @settings
+name: Colored Sidebar Items
+id: colored-sidebar-settings
+settings:
+- 
+    id: sidebar-font-family
+    title: Sidebar Font Type
+    description: Font used for text in the sidebar
+    type: variable-text
+    default: 'Trebuchet MS'
+-
+    id: sidebar-font-size
+    title: Sidebar Font Size
+    type: variable-number
+    default: 10
+    format: pt
+# Colors
+-
+    title: Sidebar Color Override
+    type: heading
+    level: 2
+    collapsed: true
+- 
+    id: prefix-00
+    title: Prefix 00
+    type: variable-themed-color
+    format: hex
+    default-light: '#'
+    default-dark: '#'
+- 
+    id: prefix-01
+    title: Prefix 01
+    type: variable-themed-color
+    format: hex
+    default-light: '#'
+    default-dark: '#'
+- 
+    id: prefix-02
+    title: Prefix 02
+    type: variable-themed-color
+    format: hex
+    default-light: '#'
+    default-dark: '#'
+- 
+    id: prefix-03
+    title: Prefix 03
+    type: variable-themed-color
+    format: hex
+    default-light: '#'
+    default-dark: '#'
+- 
+    id: prefix-04
+    title: Prefix 04
+    type: variable-themed-color
+    format: hex
+    default-light: '#'
+    default-dark: '#'
+- 
+    id: prefix-05
+    title: Prefix 05
+    type: variable-themed-color
+    format: hex
+    default-light: '#'
+    default-dark: '#'
+- 
+    id: prefix-06
+    title: Prefix 06
+    type: variable-themed-color
+    format: hex
+    default-light: '#'
+    default-dark: '#'
+- 
+    id: prefix-07
+    title: Prefix 07
+    type: variable-themed-color
+    format: hex
+    default-light: '#'
+    default-dark: '#'
+- 
+    id: prefix-08
+    title: Prefix 08
+    type: variable-themed-color
+    format: hex
+    default-light: '#'
+    default-dark: '#'
+- 
+    id: prefix-09
+    title: Prefix 09
+    type: variable-themed-color
+    format: hex
+    default-light: '#'
+    default-dark: '#'
+- 
+    id: prefix-10
+    title: Prefix 10
+    type: variable-themed-color
+    format: hex
+    default-light: '#'
+    default-dark: '#'
+- 
+    id: prefix-11
+    title: Prefix 11
+    type: variable-themed-color
+    format: hex
+    default-light: '#'
+    default-dark: '#'
+- 
+    id: prefix-12
+    title: Prefix 12
+    type: variable-themed-color
+    format: hex
+    default-light: '#'
+    default-dark: '#'
+*/
+
 /* Set your prefix variables here */
-:root {
+body {
   --prefix-00: #2D22C6;
   --prefix-01: #4B1DBA;
   --prefix-02: #6918AE;
@@ -19,11 +134,19 @@ targetted that does not have an index.
   --prefix-05: #C30A8B;
   --prefix-06: #E1057F;
   --prefix-07: #FF0073;
+  --prefix-08: #FF1F5C;
+  --prefix-09: #FF3D45;
+  --prefix-10: #FF5C2E;
+  --prefix-11: #FF7A17;
+  --prefix-12: #FF9900;
 
   --highlight: #fff;
   --shadow: #0b0c2c;
   --default-text-color: #d0d0d0;
   --fallback-color: #d0d0d0;
+
+  --sidebar-font-family: 'Trebuchet MS';
+  --sidebar-font-size: 10pt;
 }
 
 /* Add a selector here if need be */
@@ -43,6 +166,16 @@ targetted that does not have an index.
 .nav-file-title[data-path^="06"] { --prefix-color: var(--prefix-06); }
 .nav-folder-title[data-path^="07"],
 .nav-file-title[data-path^="07"] { --prefix-color: var(--prefix-07); }
+.nav-folder-title[data-path^="08"],
+.nav-file-title[data-path^="08"] { --prefix-color: var(--prefix-07); }
+.nav-folder-title[data-path^="09"],
+.nav-file-title[data-path^="09"] { --prefix-color: var(--prefix-07); }
+.nav-folder-title[data-path^="10"],
+.nav-file-title[data-path^="10"] { --prefix-color: var(--prefix-07); }
+.nav-folder-title[data-path^="11"],
+.nav-file-title[data-path^="11"] { --prefix-color: var(--prefix-07); }
+.nav-folder-title[data-path^="12"],
+.nav-file-title[data-path^="12"] { --prefix-color: var(--prefix-07); }
 
 .theme-light {
   --contrast-color: var(--shadow);
@@ -62,7 +195,8 @@ targetted that does not have an index.
 
 .nav-folder-title {
   font-weight: bold;
-  font-family: Sans-serif;
+  font-family: var(--sidebar-font-family);
+  font-size: var(--sidebar-font-size);
   border-radius: 5px;
   color: var(--prefix-color, var(--fallback-color));
   --nav-item-color-hover: color-mix(
