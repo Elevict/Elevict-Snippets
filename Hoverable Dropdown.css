@@ -1,193 +1,268 @@
-/* based on original design by FeikeB:
-   https://forum.obsidian.md/t/want-a-multi-level-dropdown-menu-inside-your-notes-you-can-i-built-one/40501
-   converted (badly) to callout by sailKite */
+/*
+Author: Elevict and Sailkite
+Date: Last updated August 9th, 2024
+Description: A CSS file made to have a functional hoverable dropdown work in
+obsidian MD.
+properly function.
+*/
+
+/* @settings
+name: Hoverable Dropdown Settings
+id: gradient-callout-settings
+settings:
+- 
+    id: dropdown-font-family
+    title: Dropdown Font Type
+    description: Font used for text in the dropdown
+    type: variable-text
+    default: 'Sans-Serif'
+-   
+# Colors
+-
+    title: Dropdown Gradient Overrides
+    type: heading
+    level: 2
+    collapsed: true
+- 
+    id: hover-gradient-1-start
+    title: Gradient Primary Start
+    type: variable-themed-color
+    opacity: false
+    format: rgb
+    default-light: '#'
+    default-dark: '#'
+- 
+    id: hover-gradient-1-end
+    title: Gradient Primary End
+    type: variable-themed-color
+    opacity: false
+    format: rgb
+    default-light: '#'
+    default-dark: '#'
+- 
+    id: hover-gradient-2-start
+    title: Gradient Secondary Start
+    type: variable-themed-color
+    opacity: false
+    format: rgb
+    default-light: '#'
+    default-dark: '#'
+- 
+    id: hover-gradient-2-end
+    title: Gradient Secondary End
+    type: variable-themed-color
+    opacity: false
+    format: rgb
+    default-light: '#'
+    default-dark: '#'
+- 
+    id: hover-gradient-3-start
+    title: Gradient Tertiary Start
+    type: variable-themed-color
+    opacity: false
+    format: rgb
+    default-light: '#'
+    default-dark: '#'
+- 
+    id: hover-gradient-3-end
+    title: Gradient Tertiary End
+    type: variable-themed-color
+    opacity: false
+    format: rgb
+    default-light: '#'
+    default-dark: '#'
+- 
+    id: hover-gradient-4-start
+    title: Gradient Quaternary Start
+    type: variable-themed-color
+    opacity: false
+    format: rgb
+    default-light: '#'
+    default-dark: '#'
+- 
+    id: hover-gradient-4-end
+    title: Gradient Quaternary End
+    type: variable-themed-color
+    opacity: false
+    format: rgb
+    default-light: '#'
+    default-dark: '#'
+- 
+    id: hover-gradient-5-start
+    title: Gradient Quinary Start
+    type: variable-themed-color
+    opacity: false
+    format: rgb
+    default-light: '#'
+    default-dark: '#'
+- 
+    id: hover-gradient-5-end
+    title: Gradient Quinary End
+    type: variable-themed-color
+    opacity: false
+    format: rgb
+    default-light: '#'
+    default-dark: '#'
+*/
+
+:root{
+    --hover-gradient-1-start: rgb(45, 34, 198);
+    --hover-gradient-1-end: rgb(235, 30, 245);
+
+    --hover-gradient-2-start: rgb(34, 199, 50);
+    --hover-gradient-2-end: rgb(219, 210, 29);
+
+    --hover-gradient-3-start: rgb(199, 169, 34);
+    --hover-gradient-3-end: rgb(219, 29, 29);
+
+    --hover-gradient-4-start: rgb(33, 59, 255);
+    --hover-gradient-4-end: rgb(0, 255, 179);
+
+    --hover-gradient-5-start: rgb(255, 0, 191);
+    --hover-gradient-5-end: rgb(255, 0, 115);
+
+    --dropdown-font-family: 'Sans-Serif';
+}
+
 .callout[data-callout="navmenu"] {
-    font-family: sans-serif;
 
     /* Gradient color selections */
-    &[data-callout-metadata*="Blue_gradient_1"] { --custom-background-color: rgb(45, 34, 198); }
-    &[data-callout-metadata*="Blue_gradient_2"] { --custom-background-color: rgb(59, 34, 201); }
-    &[data-callout-metadata*="Blue_gradient_3"] { --custom-background-color: rgb(72, 33, 205); }
-    &[data-callout-metadata*="Blue_gradient_4"] { --custom-background-color: rgb(86, 33, 208); }
-    &[data-callout-metadata*="Blue_gradient_5"] { --custom-background-color: rgb(99, 33, 211); }
-    &[data-callout-metadata*="Blue_gradient_6"] { --custom-background-color: rgb(113, 33, 215); }
-    &[data-callout-metadata*="Blue_gradient_7"] { --custom-background-color: rgb(126, 32, 218); }
-    &[data-callout-metadata*="Blue_gradient_8"] { --custom-background-color: rgb(140, 32, 222); }
-    &[data-callout-metadata*="Blue_gradient_9"] { --custom-background-color: rgb(154, 32, 225); }
-    &[data-callout-metadata*="Blue_gradient_10"] { --custom-background-color: rgb(167, 31, 228); }
-    &[data-callout-metadata*="Blue_gradient_11"] { --custom-background-color: rgb(181, 31, 232); }
-    &[data-callout-metadata*="Blue_gradient_12"] { --custom-background-color: rgb(194, 31, 235); }
-    &[data-callout-metadata*="Blue_gradient_13"] { --custom-background-color: rgb(208, 31, 238); }
-    &[data-callout-metadata*="Blue_gradient_14"] { --custom-background-color: rgb(221, 30, 242); }
-    &[data-callout-metadata*="Blue_gradient_15"] { --custom-background-color: rgb(235, 30, 245); }
+    &[data-callout-metadata*="gradient_1_1"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-1-end) 0%, var(--hover-gradient-1-start) 100%); }
+    &[data-callout-metadata*="gradient_1_2"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-1-end) 6.25%, var(--hover-gradient-1-start) 93.75%); }
+    &[data-callout-metadata*="gradient_1_3"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-1-end) 12.5%, var(--hover-gradient-1-start) 87.5%); }
+    &[data-callout-metadata*="gradient_1_4"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-1-end) 18.75%, var(--hover-gradient-1-start) 81.25%); }
+    &[data-callout-metadata*="gradient_1_5"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-1-end) 25%, var(--hover-gradient-1-start) 75%); }
+    &[data-callout-metadata*="gradient_1_6"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-1-end) 31.25%, var(--hover-gradient-1-start) 68.75%); }
+    &[data-callout-metadata*="gradient_1_7"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-1-end) 37.5%, var(--hover-gradient-1-start) 62.5%); }
+    &[data-callout-metadata*="gradient_1_8"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-1-end) 43.75%, var(--hover-gradient-1-start) 56.25%); }
+    &[data-callout-metadata*="gradient_1_9"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-1-end) 50%, var(--hover-gradient-1-start) 50%); }
+    &[data-callout-metadata*="gradient_1_10"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-1-end) 56.25%, var(--hover-gradient-1-start) 43.75%); }
+    &[data-callout-metadata*="gradient_1_11"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-1-end) 62.5%, var(--hover-gradient-1-start) 37.5%); }
+    &[data-callout-metadata*="gradient_1_12"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-1-end) 68.75%, var(--hover-gradient-1-start) 31.25%); }
+    &[data-callout-metadata*="gradient_1_13"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-1-end) 75%, var(--hover-gradient-1-start) 25%); }
+    &[data-callout-metadata*="gradient_1_14"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-1-end) 81.25%, var(--hover-gradient-1-start) 18.75%); }
+    &[data-callout-metadata*="gradient_1_15"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-1-end) 87.5%, var(--hover-gradient-1-start) 12.5%); }
 
-    &[data-callout-metadata*="green_gradient_1"] { --custom-background-color: rgb(34, 199, 50); }
-    &[data-callout-metadata*="green_gradient_2"] { --custom-background-color: rgb(47, 200, 49); }
-    &[data-callout-metadata*="green_gradient_3"] { --custom-background-color: rgb(60, 201, 47); }
-    &[data-callout-metadata*="green_gradient_4"] { --custom-background-color: rgb(74, 201, 46); }
-    &[data-callout-metadata*="green_gradient_5"] { --custom-background-color: rgb(87, 202, 44); }
-    &[data-callout-metadata*="green_gradient_6"] { --custom-background-color: rgb(100, 203, 43); }
-    &[data-callout-metadata*="green_gradient_7"] { --custom-background-color: rgb(113, 204, 41); }
-    &[data-callout-metadata*="green_gradient_8"] { --custom-background-color: rgb(127, 205, 40); }
-    &[data-callout-metadata*="green_gradient_9"] { --custom-background-color: rgb(140, 205, 38); }
-    &[data-callout-metadata*="green_gradient_10"] { --custom-background-color: rgb(153, 206, 37); }
-    &[data-callout-metadata*="green_gradient_11"] { --custom-background-color: rgb(166, 207, 35); }
-    &[data-callout-metadata*="green_gradient_12"] { --custom-background-color: rgb(179, 208, 34); }
-    &[data-callout-metadata*="green_gradient_13"] { --custom-background-color: rgb(193, 208, 32); }
-    &[data-callout-metadata*="green_gradient_14"] { --custom-background-color: rgb(206, 209, 31); }
-    &[data-callout-metadata*="green_gradient_15"] { --custom-background-color: rgb(219, 210, 29); }
+    &[data-callout-metadata*="gradient_2_1"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-2-end) 0%, var(--hover-gradient-2-start) 100%); }
+    &[data-callout-metadata*="gradient_2_2"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-2-end) 6.25%, var(--hover-gradient-2-start) 93.75%); }
+    &[data-callout-metadata*="gradient_2_3"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-2-end) 12.5%, var(--hover-gradient-2-start) 87.5%); }
+    &[data-callout-metadata*="gradient_2_4"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-2-end) 18.75%, var(--hover-gradient-2-start) 81.25%); }
+    &[data-callout-metadata*="gradient_2_5"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-2-end) 25%, var(--hover-gradient-2-start) 75%); }
+    &[data-callout-metadata*="gradient_2_6"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-2-end) 31.25%, var(--hover-gradient-2-start) 68.75%); }
+    &[data-callout-metadata*="gradient_2_7"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-2-end) 37.5%, var(--hover-gradient-2-start) 62.5%); }
+    &[data-callout-metadata*="gradient_2_8"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-2-end) 43.75%, var(--hover-gradient-2-start) 56.25%); }
+    &[data-callout-metadata*="gradient_2_9"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-2-end) 50%, var(--hover-gradient-2-start) 50%); }
+    &[data-callout-metadata*="gradient_2_10"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-2-end) 56.25%, var(--hover-gradient-2-start) 43.75%); }
+    &[data-callout-metadata*="gradient_2_11"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-2-end) 62.5%, var(--hover-gradient-2-start) 37.5%); }
+    &[data-callout-metadata*="gradient-2_12"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-2-end) 68.75%, var(--hover-gradient-2-start) 31.25%); }
+    &[data-callout-metadata*="gradient-2_13"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-2-end) 75%, var(--hover-gradient-2-start) 25%); }
+    &[data-callout-metadata*="gradient-2_14"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-2-end) 81.25%, var(--hover-gradient-2-start) 18.75%); }
+    &[data-callout-metadata*="gradient-2_15"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-2-end) 87.5%, var(--hover-gradient-2-start) 12.5%); }
 
-    &[data-callout-metadata*="orange_gradient_1"] { --custom-background-color: rgb(199, 169, 34); }
-    &[data-callout-metadata*="orange_gradient_2"] { --custom-background-color: rgb(200, 159, 34); }
-    &[data-callout-metadata*="orange_gradient_3"] { --custom-background-color: rgb(202, 149, 33); }
-    &[data-callout-metadata*="orange_gradient_4"] { --custom-background-color: rgb(203, 139, 33); }
-    &[data-callout-metadata*="orange_gradient_5"] { --custom-background-color: rgb(205, 129, 33); }
-    &[data-callout-metadata*="orange_gradient_6"] { --custom-background-color: rgb(206, 119, 32); }
-    &[data-callout-metadata*="orange_gradient_7"] { --custom-background-color: rgb(208, 109, 32); }
-    &[data-callout-metadata*="orange_gradient_8"] { --custom-background-color: rgb(209, 99, 32); }
-    &[data-callout-metadata*="orange_gradient_9"] { --custom-background-color: rgb(210, 89, 31); }
-    &[data-callout-metadata*="orange_gradient_10"] { --custom-background-color: rgb(212, 79, 31); }
-    &[data-callout-metadata*="orange_gradient_11"] { --custom-background-color: rgb(213, 69, 30); }
-    &[data-callout-metadata*="orange_gradient_12"] { --custom-background-color: rgb(215, 59, 30); }
-    &[data-callout-metadata*="orange_gradient_13"] { --custom-background-color: rgb(216, 49, 30); }
-    &[data-callout-metadata*="orange_gradient_14"] { --custom-background-color: rgb(218, 39, 29); }
-    &[data-callout-metadata*="orange_gradient_15"] { --custom-background-color: rgb(219, 29, 29); }
+    &[data-callout-metadata*="gradient-3_1"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-3-end) 0%, var(--hover-gradient-3-start) 100%); }
+    &[data-callout-metadata*="gradient-3_2"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-3-end) 6.25%, var(--hover-gradient-3-start) 93.75%); }
+    &[data-callout-metadata*="gradient-3_3"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-3-end) 12.5%, var(--hover-gradient-3-start) 87.5%); }
+    &[data-callout-metadata*="gradient-3_4"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-3-end) 18.75%, var(--hover-gradient-3-start) 81.25%); }
+    &[data-callout-metadata*="gradient-3_5"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-3-end) 25%, var(--hover-gradient-3-start) 75%); }
+    &[data-callout-metadata*="gradient-3_6"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-3-end) 31.25%, var(--hover-gradient-3-start) 68.75%); }
+    &[data-callout-metadata*="gradient-3_7"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-3-end) 37.5%, var(--hover-gradient-3-start) 62.5%); }
+    &[data-callout-metadata*="gradient-3_8"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-3-end) 43.75%, var(--hover-gradient-3-start) 56.25%); }
+    &[data-callout-metadata*="gradient-3_9"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-3-end) 50%, var(--hover-gradient-3-start) 50%); }
+    &[data-callout-metadata*="gradient-3_10"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-3-end) 56.25%, var(--hover-gradient-3-start) 43.75%); }
+    &[data-callout-metadata*="gradient-3_11"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-3-end) 62.5%, var(--hover-gradient-3-start) 37.5%); }
+    &[data-callout-metadata*="gradient-3_12"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-3-end) 68.75%, var(--hover-gradient-3-start) 31.25%); }
+    &[data-callout-metadata*="gradient-3_13"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-3-end) 75%, var(--hover-gradient-3-start) 25%); }
+    &[data-callout-metadata*="gradient-3_14"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-3-end) 81.25%, var(--hover-gradient-3-start) 18.75%); }
+    &[data-callout-metadata*="gradient-3_15"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-3-end) 87.5%, var(--hover-gradient-3-start) 12.5%); }
 
-    &[data-callout-metadata*="cyan_gradient_1"] { --custom-background-color: rgb(33, 59, 255); }
-    &[data-callout-metadata*="cyan_gradient_2"] { --custom-background-color: rgb(31, 73, 250); }
-    &[data-callout-metadata*="cyan_gradient_3"] { --custom-background-color: rgb(28, 87, 244); }
-    &[data-callout-metadata*="cyan_gradient_4"] { --custom-background-color: rgb(26, 101, 239); }
-    &[data-callout-metadata*="cyan_gradient_5"] { --custom-background-color: rgb(24, 115, 233); }
-    &[data-callout-metadata*="cyan_gradient_6"] { --custom-background-color: rgb(21, 129, 228); }
-    &[data-callout-metadata*="cyan_gradient_7"] { --custom-background-color: rgb(19, 143, 222); }
-    &[data-callout-metadata*="cyan_gradient_8"] { --custom-background-color: rgb(17, 157, 217); }
-    &[data-callout-metadata*="cyan_gradient_9"] { --custom-background-color: rgb(14, 171, 212); }
-    &[data-callout-metadata*="cyan_gradient_10"] { --custom-background-color: rgb(12, 185, 206); }
-    &[data-callout-metadata*="cyan_gradient_11"] { --custom-background-color: rgb(9, 199, 201); }
-    &[data-callout-metadata*="cyan_gradient_12"] { --custom-background-color: rgb(7, 213, 195); }
-    &[data-callout-metadata*="cyan_gradient_13"] { --custom-background-color: rgb(5, 227, 190); }
-    &[data-callout-metadata*="cyan_gradient_14"] { --custom-background-color: rgb(2, 241, 184); }
-    &[data-callout-metadata*="cyan_gradient_15"] { --custom-background-color: rgb(0, 255, 179); }
+    &[data-callout-metadata*="gradient-4_1"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-4-end) 0%, var(--hover-gradient-4-start) 100%); }
+    &[data-callout-metadata*="gradient-4_2"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-4-end) 6.25%, var(--hover-gradient-4-start) 93.75%); }
+    &[data-callout-metadata*="gradient-4_3"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-4-end) 12.5%, var(--hover-gradient-4-start) 87.5%); }
+    &[data-callout-metadata*="gradient-4_4"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-4-end) 18.75%, var(--hover-gradient-4-start) 81.25%); }
+    &[data-callout-metadata*="gradient-4_5"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-4-end) 25%, var(--hover-gradient-4-start) 75%); }
+    &[data-callout-metadata*="gradient-4_6"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-4-end) 31.25%, var(--hover-gradient-4-start) 68.75%); }
+    &[data-callout-metadata*="gradient-4_7"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-4-end) 37.5%, var(--hover-gradient-4-start) 62.5%); }
+    &[data-callout-metadata*="gradient-4_8"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-4-end) 43.75%, var(--hover-gradient-4-start) 56.25%); }
+    &[data-callout-metadata*="gradient-4_9"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-4-end) 50%, var(--hover-gradient-4-start) 50%); }
+    &[data-callout-metadata*="gradient-4_10"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-4-end) 56.25%, var(--hover-gradient-4-start) 43.75%); }
+    &[data-callout-metadata*="gradient-4_11"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-4-end) 62.5%, var(--hover-gradient-4-start) 37.5%); }
+    &[data-callout-metadata*="gradient-4_12"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-4-end) 68.75%, var(--hover-gradient-4-start) 31.25%); }
+    &[data-callout-metadata*="gradient-4_13"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-4-end) 75%, var(--hover-gradient-4-start) 25%); }
+    &[data-callout-metadata*="gradient-4_14"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-4-end) 81.25%, var(--hover-gradient-4-start) 18.75%); }
+    &[data-callout-metadata*="gradient-4_15"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-4-end) 87.5%, var(--hover-gradient-4-start) 12.5%); }
 
-    &[data-callout-metadata*="pink_gradient_1"] { --custom-background-color: rgb(255, 0, 191); }
-    &[data-callout-metadata*="pink_gradient_2"] { --custom-background-color: rgb(255, 0, 186); }
-    &[data-callout-metadata*="pink_gradient_3"] { --custom-background-color: rgb(255, 0, 180); }
-    &[data-callout-metadata*="pink_gradient_4"] { --custom-background-color: rgb(255, 0, 175); }
-    &[data-callout-metadata*="pink_gradient_5"] { --custom-background-color: rgb(255, 0, 169); }
-    &[data-callout-metadata*="pink_gradient_6"] { --custom-background-color: rgb(255, 0, 164); }
-    &[data-callout-metadata*="pink_gradient_7"] { --custom-background-color: rgb(255, 0, 158); }
-    &[data-callout-metadata*="pink_gradient_8"] { --custom-background-color: rgb(255, 0, 153); }
-    &[data-callout-metadata*="pink_gradient_9"] { --custom-background-color: rgb(255, 0, 148); }
-    &[data-callout-metadata*="pink_gradient_10"] { --custom-background-color: rgb(255, 0, 142); }
-    &[data-callout-metadata*="pink_gradient_11"] { --custom-background-color: rgb(255, 0, 137); }
-    &[data-callout-metadata*="pink_gradient_12"] { --custom-background-color: rgb(255, 0, 131); }
-    &[data-callout-metadata*="pink_gradient_13"] { --custom-background-color: rgb(255, 0, 126); }
-    &[data-callout-metadata*="pink_gradient_14"] { --custom-background-color: rgb(255, 0, 120); }
-    &[data-callout-metadata*="pink_gradient_15"] { --custom-background-color: rgb(255, 0, 115); }
-
-
+    &[data-callout-metadata*="gradient-5_1"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-5-end) 0%, var(--hover-gradient-5-start) 100%); }
+    &[data-callout-metadata*="gradient-5_2"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-5-end) 6.25%, var(--hover-gradient-5-start) 93.75%); }
+    &[data-callout-metadata*="gradient-5_3"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-5-end) 12.5%, var(--hover-gradient-5-start) 87.5%); }
+    &[data-callout-metadata*="gradient-5_4"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-5-end) 18.75%, var(--hover-gradient-5-start) 81.25%); }
+    &[data-callout-metadata*="gradient-5_5"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-5-end) 25%, var(--hover-gradient-5-start) 75%); }
+    &[data-callout-metadata*="gradient-5_6"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-5-end) 31.25%, var(--hover-gradient-5-start) 68.75%); }
+    &[data-callout-metadata*="gradient-5_7"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-5-end) 37.5%, var(--hover-gradient-5-start) 62.5%); }
+    &[data-callout-metadata*="gradient-5_8"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-5-end) 43.75%, var(--hover-gradient-5-start) 56.25%); }
+    &[data-callout-metadata*="gradient-5_9"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-5-end) 50%, var(--hover-gradient-5-start) 50%); }
+    &[data-callout-metadata*="gradient-5_10"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-5-end) 56.25%, var(--hover-gradient-5-start) 43.75%); }
+    &[data-callout-metadata*="gradient-5_11"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-5-end) 62.5%, var(--hover-gradient-5-start) 37.5%); }
+    &[data-callout-metadata*="gradient-5_12"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-5-end) 68.75%, var(--hover-gradient-5-start) 31.25%); }
+    &[data-callout-metadata*="gradient-5_13"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-5-end) 75%, var(--hover-gradient-5-start) 25%); }
+    &[data-callout-metadata*="gradient-5_14"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-5-end) 81.25%, var(--hover-gradient-5-start) 18.75%); }
+    &[data-callout-metadata*="gradient-5_15"] { --hoverable-color: color-mix(in srgb, var(--hover-gradient-5-end) 87.5%, var(--hover-gradient-5-start) 12.5%); }
+    
     /* Keyframes for slide-in animation */
     @keyframes slideIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
 
-    --item-gap: 6px;
-    background-color: transparent;
-    border-color: transparent;
-    --link-color: var(--custom-background-color);
-    --link-color-hover: var(--custom-background-color);
-    margin: 0;
+    --item-gap: 6px; /* Distance between hover button and dropdown list */
+    background-color: transparent; /* Callout background */
+    border-color: transparent; /* Callout border color */
+    --link-color: var(--hoverable-color); /* Link colors */
+    --link-color-hover: var(--hoverable-color);
     padding: 0;
-    overflow: visible;
-    z-index: 10;
-    transition: border-color 0.2s, border-width 0.2s, background-color 0.2s;
+    overflow: visible; /* Let the dropdown flow down */
 
-    & > .callout-content ul li a {
-        pointer-events: auto;
-    }
-
-    & .callout-content a {
-        position: relative;
-    }
-
-    & * {
-        pointer-events: auto;
-    }
-
+    
+    & .callout-content a { position: relative; }
     & > .callout-title { display: none; }
-
     & > .callout-content {
-        overflow: visible;
-        isolation: isolate;
-        z-index: 10;
-
-        & :is(.list-bullet, .list-collapse-indicator) { display: none; }
-
+        overflow: visible; /* Let the dropdown flow down */
         & ul {
-            display: flex;
-            position: relative;
-            padding-inline-start: 0;
-            z-index: 10;
-
-            &::before, &::after { display: none; }
-            
-            &::before {
-                content: "";
-                display: block;
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                left: 0;
-                bottom: unset;
-                border: unset;
-            }
-            
+            display: flex; /* Set dropdown appearance */
+            /* Remove bullet visuals */
+            &::before {border: unset;}
+            & :is(.list-bullet, .list-collapse-indicator) { display: none; }
             & li {
-                background: #08040c;
-                animation: slideIn 0.2s ease-out;
-                border: 1px solid var(--custom-background-color);
-                border-color: color-mix(in srgb,
-                var(--custom-background-color) 35%, #08040c 65%);
-                color: var(--custom-background-color) !important;
+                /* Colors of boxes */
+                font-family: var(--dropdown-font-family);
+                color: var(--hoverable-color) !important;
+                background: var(--background-primary);
+                border: 1px solid;
+                border-color: color-mix(in srgb, var(--background-primary) 100%, var(--hoverable-color) 30%);
                 font-weight: bold;
+                /* Width and height of boxes */
                 min-width: 170.4px;
                 min-height: 30px;
-                transition: background-color 0.2s, color 0.2s, transform 0.2s, border 0s;
-                margin: 0px 4px 3px 0px;
-                padding-top: 10px;
-                padding-bottom: 10px;
-                box-sizing: border-box;
-                border-radius: 5px;
-                position: relative;
+                /* Detailing of the boxes */
+                margin: 0px 4px 4px 0px;
+                padding: 10px 0px 10px 0px;
+                list-style: none;  /* Remove bullet points */
+                border-radius: 6px;
                 text-align: center;
-                list-style: none;
-                display: block;
-                z-index: 10;
                 
+                /* Prevents hovering nonexistent boxes */
                 &:not(:hover, :has(:hover)) {
                     overflow: hidden;
                 }
                 
+                /* Transition to next boxes dropping down */
                 & > ul > li {
-                    left: -21px;
-                    transition: transform 0.2s, opacity 0.2s;
-                    transform: translateY(150%);
+                    transition: opacity 0.4s;
                     opacity: 0;
                 }
                 
                 &:is(:hover, :has(:hover)) {
-                    background-color: color-mix(
-                        in srgb,
-                        var(--custom-background-color) 15%, #08040c 85%);
-                    border-width: 3px;
-                    border-color: rgba(var(--custom-background-color), 0.35);
-                    padding: 8px 18px;
+                    background-color: color-mix(in srgb, var(--hoverable-color) 20%, var(--background-primary) 100%);
+                    border-color: color-mix(in srgb, var(--hoverable-color) 100%, var(--background-primary) 100%);
                     &::before {
                         content: "";
                         position: absolute;
@@ -201,27 +276,20 @@
                     }
                 }
             }
-            
             & ul {
                 position: absolute;
                 flex-direction: column;
                 top: calc(100% + var(--item-gap));
-
                 & > li > ul {
-                    top: -3px;
-                    left: 192px;
-                    
-                    & > li {
-                        transform: translateX(195px);
-                    }
+                    top: 0;
+                    left: calc(100% + var(--item-gap));
                 }
             }
         }
     }
-
+    /* Lets boxes drop down in editing view */   
     .markdown-source-view.mod-cm6 .cm-content > [contenteditable=false]:has(> .markdown-rendered > &) {
         contain: none !important;
-
         &:hover {
             contain: none !important;
             overflow: visible;
