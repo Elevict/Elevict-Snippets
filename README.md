@@ -12,10 +12,6 @@ This collection of CSS snippets is designed to enhance the functionality and app
 2. **Colored Sidebar Items**  
    Customizes colors for sidebar folders and files. Originally by [CyanVoxel](https://github.com/CyanVoxel/Obsidian-Colored-Sidebar), but refactored to be compatible with newer obsidian versions and easier to edit. Now customziable by the [Style Settings Plugin](https://github.com/mgmeyers/obsidian-style-settings).
 
-<p align="center">
-<img src="https://github.com/user-attachments/assets/7f903c23-8e76-41ee-b349-fec72158356e" width="500" style="border-radius:8px; box-shadow:0 4px 8px rgba(0, 0, 0, 0.2);"/>
-</p>
-
 3. **Gradient Callouts and Headers**  
    Create dynamic homepages with gradient callouts. Requires the [MCL Multicolumn](https://github.com/efemkay/obsidian-modular-css-layout) snippet to work, so ensure callouts are placed within the MCL Multicolumn. Also offers gradient headers that match the gradient callouts.
 
