@@ -1,6 +1,6 @@
 /*
 Author: Elevict
-Date: Last updated August 8th, 2024
+Date: Last updated August 13th, 2024
 Description: A series of gradient callouts and gradient headers
 for designing a homepage. Requires the MCL snippet to have gradient callouts
 properly function.
@@ -16,8 +16,7 @@ settings:
         type: heading
         level: 1
         collapsed: true
-# Colors
-    # Fonts
+# Fonts
     - 
         id: callout-font
         title: Callout Text Font
@@ -34,13 +33,13 @@ settings:
         id: callout-font-size
         title: Callout Text Size
         type: variable-number
-        description: Callout content text size in pt
+        description: Callout content size in pt
         default: 10
         format: pt
     -
         id: callout-title-font-size
         title: Callout Title Size
-        description: Callout title text size in pt
+        description: Callout title size in pt
         type: variable-number
         default: 12
         format: pt
@@ -65,7 +64,7 @@ settings:
     -
         id: border-radius
         title: Callout Radius
-        description: Adjust the border radius of the callout
+        description: Adjust the radius of the callout
         type: variable-number
         default: 10
         format: px
@@ -192,12 +191,12 @@ settings:
         id: header-font-size
         title: Header Font Size
         type: variable-number
-        description: Header text size in pt
         default: 22
         format: pt
     -   
         id: header-font-weight
-        title: Header Font Weight
+        title: Callout Title Font Weight
+        descripotion: How bold the header appears
         type: variable-number-slider
         default: 100
         min: 0
@@ -206,7 +205,7 @@ settings:
     -   
         id: gradient-header-location
         title: Center Heading
-        description: Centers your headings
+        description: Moves your headings to the center when toggled
         type: class-toggle
     -
         title: Border Settings
@@ -459,6 +458,11 @@ body {
       display: none;
     }
     
+    /* icon updated */
+    .callout-fold .svg-icon{
+        color: var(--callout-color);
+    }
+
     /* Callout Title Adjustments */
     .callout-title-inner {
       font-family: var(--callout-title-font-family);
