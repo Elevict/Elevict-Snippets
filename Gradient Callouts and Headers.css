@@ -1,6 +1,6 @@
 /*
 Author: Elevict
-Date: Last updated August 13th, 2024
+Date: Last updated August 15th, 2024
 Description: A series of gradient callouts and gradient headers
 for designing a homepage. Requires the MCL snippet to have gradient callouts
 properly function.
@@ -470,7 +470,13 @@ body {
       font-size: var(--callout-title-font-size);
       color: var(--callout-color);
     }
-  
+
+    /* Heading Colors */
+    h1, .markdown-rendered h1, h2, .markdown-rendered h2, h3, .markdown-rendered h3,
+    h4, .markdown-rendered h4, h5, .markdown-rendered h5, h6, .markdown-rendered h6 {
+        color: var(--callout-color);
+    }
+
     /* Change Color of Text Inside Callout and Format */
     p {
       color: var(--callout-color);
