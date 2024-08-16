@@ -167,15 +167,15 @@ body {
 .nav-folder-title[data-path^="07"],
 .nav-file-title[data-path^="07"] { --prefix-color: var(--prefix-07); }
 .nav-folder-title[data-path^="08"],
-.nav-file-title[data-path^="08"] { --prefix-color: var(--prefix-07); }
+.nav-file-title[data-path^="08"] { --prefix-color: var(--prefix-08); }
 .nav-folder-title[data-path^="09"],
-.nav-file-title[data-path^="09"] { --prefix-color: var(--prefix-07); }
+.nav-file-title[data-path^="09"] { --prefix-color: var(--prefix-09); }
 .nav-folder-title[data-path^="10"],
-.nav-file-title[data-path^="10"] { --prefix-color: var(--prefix-07); }
+.nav-file-title[data-path^="10"] { --prefix-color: var(--prefix-10); }
 .nav-folder-title[data-path^="11"],
-.nav-file-title[data-path^="11"] { --prefix-color: var(--prefix-07); }
+.nav-file-title[data-path^="11"] { --prefix-color: var(--prefix-11); }
 .nav-folder-title[data-path^="12"],
-.nav-file-title[data-path^="12"] { --prefix-color: var(--prefix-07); }
+.nav-file-title[data-path^="12"] { --prefix-color: var(--prefix-12); }
 
 .theme-light {
   --contrast-color: var(--shadow);
