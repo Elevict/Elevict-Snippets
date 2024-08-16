@@ -444,6 +444,7 @@ body {
 .callout[data-callout="gradient_5_16"] { --callout-color: var(--gradient-5-16); }
 .callout[data-callout="gradient_5_17"] { --callout-color: var(--gradient-5-17); }
 
+
 /* Gradient Callout Settings */
 .callout[data-callout*="gradient"] {
     --callout-background: var(--background-primary);
@@ -478,14 +479,14 @@ body {
     }
 
     /* Change Color of Text Inside Callout and Format */
-    p {
+    .callout-content p {
       color: var(--callout-color);
       margin: 14px 0px 0px 0px;
       font-family: var(--callout-font);
       font-size: var(--callout-font-size);
     }
-  
-    img {
+
+    .callout-content img {
       /* Image Size in Gradient Callouts */
       height: var(--image-height);
       width: var(--image-width);
