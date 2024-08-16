@@ -58,7 +58,7 @@ Description: A series of nice looking callouts for mathematics
   }
 
   /* Adjust callout content margins */
-  p {
+  .callout-content p {
     margin: 4px 4px 10px 0px
   }
 
