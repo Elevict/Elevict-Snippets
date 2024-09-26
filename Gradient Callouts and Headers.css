@@ -479,14 +479,14 @@ body {
     }
 
     /* Change Color of Text Inside Callout and Format */
-    .callout-content p {
+    p {
       color: var(--callout-color);
       margin: 14px 0px 0px 0px;
       font-family: var(--callout-font);
       font-size: var(--callout-font-size);
     }
 
-    .callout-content img {
+    img {
       /* Image Size in Gradient Callouts */
       height: var(--image-height);
       width: var(--image-width);
