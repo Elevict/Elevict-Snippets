@@ -9,9 +9,9 @@ This collection of CSS snippets is designed to enhance the functionality and app
    Adds animated backgrounds with types wave, stripes, and checkerboard.
    
 <p align="center">
-<img width="280" height="280" alt="Wave" src="https://github.com/user-attachments/assets/40143178-5510-4fb9-904a-9f2b596e0534" />
-<img width="282" height="282" alt="Strips" src="https://github.com/user-attachments/assets/2384eaa9-e671-4818-b1f9-257b664282b0" />
-<img width="270" height="270" alt="Checkerboard" src="https://github.com/user-attachments/assets/d45af178-80b1-4de6-b8b7-841f7385513c" />
+<img width="180" height="180" alt="Wave" src="https://github.com/user-attachments/assets/40143178-5510-4fb9-904a-9f2b596e0534" />
+<img width="180" height="180" alt="Strips" src="https://github.com/user-attachments/assets/2384eaa9-e671-4818-b1f9-257b664282b0" />
+<img width="180" height="180" alt="Checkerboard" src="https://github.com/user-attachments/assets/d45af178-80b1-4de6-b8b7-841f7385513c" />
 </p>
 
 ## **Colored Sidebar Items**
@@ -25,9 +25,9 @@ This collection of CSS snippets is designed to enhance the functionality and app
    Create dynamic homepages and dashboards using gradient callouts and headers. Each gradient callout is part of a unified color palette system that pairs perfectly with matching gradient headers.
 
    **Notes:**
-   1. Format gradient callouts as `[!gradient_x_y]`, where `x` (1–5) selects the gradient palette and `y` (1–17) defines the shade intensity.  
-   2. Use `[!multi-column]` to organize gradient callouts into flexible grid layouts.
-   3. Many other forms of customization available through Style Settings.
+   - Format gradient callouts as `[!gradient_x_y]`, where `x` (1–5) selects the gradient palette and `y` (1–17) defines the shade intensity.  
+   - Use `[!multi-column]` to organize gradient callouts into flexible grid layouts.
+   - Many other forms of customization available through Style Settings.
 
 ### Example: Gradient Multi-Column Layout
 <p align="center">
