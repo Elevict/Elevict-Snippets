@@ -1,29 +1,36 @@
 /*
 Made by Elevict
 
-Date: Last updated August 15th, 2024
-Description: A series of nice looking callouts for mathematics
+Date: Last updated Nov 1st, 2025
+Description: A series of customizable callouts for mathematics
 */
 
-/* ============== Callout Color Variables ============== */
+/* Default Callout Color Variables */
 .theme-light {
-  --problem-color: 182, 82, 82;
-  --question-color: 5, 99, 55;
-  --theorem-color: 223, 128, 32;
-  --example-color: 214, 155, 28;
-  --definition-color: 14, 171, 212;
-  --corollary-color: 118, 23, 161;
-  --proposition-color: 10, 10, 10;
+  --problem-color: rgb(182, 82, 82);
+  --question-color: rgb(5, 99, 55);
+  --theorem-color: rgb(223, 128, 32);
+  --example-color: rgb(214, 155, 28);
+  --definition-color: rgb(14, 171, 212);
+  --corollary-color: rgb(118, 23, 161);
+  --proposition-color: rgb(10, 10, 10);
 }
 
 .theme-dark {
-  --problem-color: 182, 82, 82;
-  --question-color: 50, 150, 100;
-  --theorem-color: 223, 128, 32;
-  --example-color: 214, 155, 28;
-  --definition-color: 14, 171, 212;
-  --corollary-color: 118, 23, 161;
-  --proposition-color: 214, 214, 214;
+  --problem-color: rgb(182, 82, 82);
+  --question-color: rgb(50, 150, 100);
+  --theorem-color: rgb(223, 128, 32);
+  --example-color: rgb(214, 155, 28);
+  --definition-color: rgb(14, 171, 212);
+  --corollary-color: rgb(118, 23, 161);
+  --proposition-color: rgb(214, 214, 214);
+}
+
+/* Global Variables */
+:root {
+  --math-callout-font: 'Times New Roman', serif;
+  --math-callout-border-size: 2px;
+  --math-callout-border-radius: 6px;
 }
 
 /* General Mathematics Callout Style */
@@ -34,40 +41,45 @@ Description: A series of nice looking callouts for mathematics
 .callout[data-callout="definition"],
 .callout[data-callout="corollary"],
 .callout[data-callout="proposition"] {
-  font-family: Times;
+  font-family: var(--math-callout-font);
   mix-blend-mode: normal;
-  border: solid 2px;
-  border-radius: 6px;
+  background-color: rgb(from var(--callout-color) r g b / 0.1);
+  border: var(--math-callout-border-size) solid rgb(from var(--callout-color) r g b / 0.3);
+  border-radius: var(--math-callout-border-radius);
   padding: 12px 12px 0px 12px;
-  border-color: rgba(var(--callout-color), 0.3);
-
+  
   /* Adjust Title */
   .callout-title-inner {
     font-weight: revert;
-    color: rgb(var(--callout-color));
+    color: var(--callout-color);
   }
-
+  
+  .markdown-source-view.mod-cm6 .edit-block-button {
+    color: red;
+  }
+  
   /* Remove Icon */
   .callout-icon {
     display: none;
   }
-
+  
   /* Vertically centers the p element */
   .callout-content {
     align-items: center;
   }
-
+  
   /* Adjust callout content margins */
-  .callout-content p {
+  p {
     margin: 4px 4px 10px 0px
   }
-
+  
   /* Change color of table and bullet lists inside callout */
-  --table-border-color: rgb(var(--callout-color));
-  --table-header-border-color: rgb(var(--callout-color));
-  --list-marker-color: rgb(var(--callout-color));
-  --link-color: rgb(var(--callout-color));
-  --bold-color: rgb(var(--callout-color));
+  --table-border-color: var(--callout-color);
+  --table-header-border-color: var(--callout-color);
+  --list-marker-color: var(--callout-color);
+  --link-color: var(--callout-color);
+  --bold-color: var(--callout-color);
+  --code-normal: var(--callout-color);
 }
 
 /* Apply Colors to Callouts */
@@ -78,3 +90,95 @@ Description: A series of nice looking callouts for mathematics
 .callout[data-callout="definition"] {--callout-color: var(--definition-color);}
 .callout[data-callout="corollary"] {--callout-color: var(--corollary-color);}
 .callout[data-callout="proposition"] {--callout-color: var(--proposition-color);}
+
+/* @settings
+
+name: Mathematics Callouts Settings
+id: math-callouts
+settings:
+    - 
+        id: math-callout-heading
+        title: Callout Colors
+        type: heading
+        level: 2
+        collapsed: true
+    - 
+        id: problem-color
+        title: Problem
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#b65252'
+        default-dark: '#b65252'
+    - 
+        id: question-color
+        title: Question
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#056337'
+        default-dark: '#329664'
+    - 
+        id: theorem-color
+        title: Theorem
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#df8020'
+        default-dark: '#df8020'
+    - 
+        id: example-color
+        title: Example
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#d69b1c'
+        default-dark: '#d69b1c'
+    - 
+        id: definition-color
+        title: Definition
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#0eabd4'
+        default-dark: '#0eabd4'
+    - 
+        id: corollary-color
+        title: Corollary
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#7617a1'
+        default-dark: '#7617a1'
+    - 
+        id: proposition-color
+        title: Proposition
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#0a0a0a'
+        default-dark: '#d6d6d6'
+    - 
+        id: math-callout-heading-2
+        title: Callout Options
+        type: heading
+        level: 2
+        collapsed: true
+    - 
+        id: math-callout-font
+        title: Callout Font
+        type: variable-text
+        default: Times New Roman
+    - 
+        id: math-callout-border-size
+        title: Callout Border Size
+        type: variable-number
+        default: 2
+        format: px
+    - 
+        id: math-callout-border-radius
+        title: Callout Border Radius
+        type: variable-number
+        default: 6
+        format: px
+*/
