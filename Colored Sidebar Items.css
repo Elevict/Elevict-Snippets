@@ -6,8 +6,122 @@ This snippet targets folders beginning with numbered prefixes, and applies full
 color formatting based what you set the prefix variables below. You can add more prefix
 variables and copy one of the selectors to your heart's content. I've put this at the top
 for convenience sake. You can also rename "date-path^=" into anything you want specifically
-targetted that does not have an index.
+targeted that does not have an index.
 */
+
+/* Set your prefix variables here */
+body {
+  --prefix-00: #52eea3; --prefix-01: #51e1e9; --prefix-02: #54b6f8; 
+  --prefix-03: #437cf3; --prefix-04: #9446f8; --prefix-05: #c952ed;
+  --prefix-06: #e54f9b; --prefix-07: #e3365e; --prefix-08: #e22c3c;
+  --prefix-09: #e9404b; --prefix-10: #ee6748; --prefix-11: #fa9f50; 
+  --prefix-12: #515768; --prefix-99: #d0d0d0;
+
+  --highlight: #fff; --shadow: #0b0c2c; --default-text-color: #d0d0d0;
+  --fallback-color: #d0d0d0; --sidebar-font-family: sans-serif;
+  --sidebar-font-size: 14px; --sidebar-font-weight: normal;
+}
+
+/* Add a selector here if need be */
+.nav-folder-title[data-path^="00"],
+.nav-file-title[data-path^="00"] { --prefix-color: var(--prefix-00); }
+.nav-folder-title[data-path^="01"],
+.nav-file-title[data-path^="01"] { --prefix-color: var(--prefix-01); }
+.nav-folder-title[data-path^="02"],
+.nav-file-title[data-path^="02"] { --prefix-color: var(--prefix-02); }
+.nav-folder-title[data-path^="03"],
+.nav-file-title[data-path^="03"] { --prefix-color: var(--prefix-03); }
+.nav-folder-title[data-path^="04"],
+.nav-file-title[data-path^="04"] { --prefix-color: var(--prefix-04); }
+.nav-folder-title[data-path^="05"],
+.nav-file-title[data-path^="05"] { --prefix-color: var(--prefix-05); }
+.nav-folder-title[data-path^="06"],
+.nav-file-title[data-path^="06"] { --prefix-color: var(--prefix-06); }
+.nav-folder-title[data-path^="07"],
+.nav-file-title[data-path^="07"] { --prefix-color: var(--prefix-07); }
+.nav-folder-title[data-path^="08"],
+.nav-file-title[data-path^="08"] { --prefix-color: var(--prefix-08); }
+.nav-folder-title[data-path^="09"],
+.nav-file-title[data-path^="09"] { --prefix-color: var(--prefix-09); }
+.nav-folder-title[data-path^="10"],
+.nav-file-title[data-path^="10"] { --prefix-color: var(--prefix-10); }
+.nav-folder-title[data-path^="11"],
+.nav-file-title[data-path^="11"] { --prefix-color: var(--prefix-11); }
+.nav-folder-title[data-path^="12"],
+.nav-file-title[data-path^="12"] { --prefix-color: var(--prefix-12); }
+.nav-folder-title[data-path^="99"],
+.nav-file-title[data-path^="99"] { --prefix-color: var(--prefix-99); }
+
+.theme-light,
+.theme-dark {
+  --contrast-color: var(--shadow);
+  --bg-contrast-amount: 70%;
+  --fg-contrast-amount: 30%;
+  --medium-contrast-amount: 60%;
+  --active-contrast-amount: 30%;
+}
+
+.theme-dark {
+  --contrast-color: var(--highlight);
+  --bg-contrast-amount: 15%;
+  --fg-contrast-amount: 40%;
+  --medium-contrast-amount: 20%;
+  --active-contrast-amount: 10%;
+}
+
+.nav-folder-title,
+.tree-item-children .nav-folder:has(.nav-folder-title) .nav-file-title,
+.tree-item-children .nav-file-title {
+  font-weight: var(--sidebar-font-weight);
+  font-family: var(--sidebar-font-family);
+  font-size: var(--sidebar-font-size);
+  border-radius: 5px;
+  color: color-mix(in srgb, var(--prefix-color, var(--fallback-color)) var(--medium-contrast-amount), var(--default-text-color));
+  --nav-item-color-hover: color-mix(
+    in srgb,
+    var(--prefix-color, var(--fallback-color)) var(--fg-contrast-amount),
+    var(--contrast-color)
+  );
+  --nav-item-background-hover: color-mix(
+    in srgb,
+    var(--prefix-color, var(--fallback-color)) var(--bg-contrast-amount),
+    transparent
+  );
+  --background-modifier-border-focus: color-mix(
+    in srgb,
+    var(--prefix-color, var(--fallback-color)) 40%,
+    transparent
+  );
+  --nav-item-background-active: color-mix(
+    in srgb,
+    var(--prefix-color, var(--fallback-color)) var(--active-contrast-amount),
+    transparent
+  );
+  --nav-collapse-icon-color: color-mix(
+    in srgb,
+    var(--prefix-color, var(--fallback-color)) 60%,
+    transparent
+  );
+}
+
+/* Folder and file title styles */
+.nav-folder-title, .nav-file-title {
+  font: var(--sidebar-font-weight) var(--sidebar-font-size) var(--sidebar-font-family);
+  color: var(--prefix-color, var(--fallback-color));
+  border-radius: 5px;
+}
+
+.nav-folder-title:hover, .nav-file-title:hover {
+  --nav-collapse-icon-color: color-mix(in srgb, var(--prefix-color, var(--fallback-color)) 60%, var(--contrast-color));
+}
+
+.tree-item-children {
+  --nav-indentation-guide-color: transparent;
+}
+
+.tree-item-children .nav-file-title {
+  color: color-mix(in srgb, var(--prefix-color, var(--fallback-color)) var(--medium-contrast-amount), var(--default-text-color));
+}
 
 /* @settings
 name: Colored Sidebar Items
@@ -18,7 +132,7 @@ settings:
     title: Sidebar Font Type
     description: Font used for text in the sidebar
     type: variable-text
-    default: 'Trebuchet MS'
+    default: 'Sans-serif'
 -
     id: sidebar-font-size
     title: Sidebar Font Size
@@ -122,171 +236,11 @@ settings:
     format: hex
     default-light: '#'
     default-dark: '#'
+- 
+    id: prefix-99
+    title: Prefix 99
+    type: variable-themed-color
+    format: hex
+    default-light: '#'
+    default-dark: '#'
 */
-
-/* Set your prefix variables here */
-body {
-  --prefix-00: #2D22C6;
-  --prefix-01: #4B1DBA;
-  --prefix-02: #6918AE;
-  --prefix-03: #8713A2;
-  --prefix-04: #A50F97;
-  --prefix-05: #C30A8B;
-  --prefix-06: #E1057F;
-  --prefix-07: #FF0073;
-  --prefix-08: #FF1F5C;
-  --prefix-09: #FF3D45;
-  --prefix-10: #FF5C2E;
-  --prefix-11: #FF7A17;
-  --prefix-12: #FF9900;
-
-  --highlight: #fff;
-  --shadow: #0b0c2c;
-  --default-text-color: #d0d0d0;
-  --fallback-color: #d0d0d0;
-
-  --sidebar-font-family: 'Trebuchet MS';
-  --sidebar-font-size: 10pt;
-}
-
-/* Add a selector here if need be */
-.nav-folder-title[data-path^="00"],
-.nav-file-title[data-path^="00"] { --prefix-color: var(--prefix-00); }
-.nav-folder-title[data-path^="01"],
-.nav-file-title[data-path^="01"] { --prefix-color: var(--prefix-01); }
-.nav-folder-title[data-path^="02"],
-.nav-file-title[data-path^="02"] { --prefix-color: var(--prefix-02); }
-.nav-folder-title[data-path^="03"],
-.nav-file-title[data-path^="03"] { --prefix-color: var(--prefix-03); }
-.nav-folder-title[data-path^="04"],
-.nav-file-title[data-path^="04"] { --prefix-color: var(--prefix-04); }
-.nav-folder-title[data-path^="05"],
-.nav-file-title[data-path^="05"] { --prefix-color: var(--prefix-05); }
-.nav-folder-title[data-path^="06"],
-.nav-file-title[data-path^="06"] { --prefix-color: var(--prefix-06); }
-.nav-folder-title[data-path^="07"],
-.nav-file-title[data-path^="07"] { --prefix-color: var(--prefix-07); }
-.nav-folder-title[data-path^="08"],
-.nav-file-title[data-path^="08"] { --prefix-color: var(--prefix-08); }
-.nav-folder-title[data-path^="09"],
-.nav-file-title[data-path^="09"] { --prefix-color: var(--prefix-09); }
-.nav-folder-title[data-path^="10"],
-.nav-file-title[data-path^="10"] { --prefix-color: var(--prefix-10); }
-.nav-folder-title[data-path^="11"],
-.nav-file-title[data-path^="11"] { --prefix-color: var(--prefix-11); }
-.nav-folder-title[data-path^="12"],
-.nav-file-title[data-path^="12"] { --prefix-color: var(--prefix-12); }
-
-.theme-light {
-  --contrast-color: var(--shadow);
-  --bg-contrast-amount: 70%;
-  --fg-contrast-amount: 30%;
-  --medium-contrast-amount: 60%;
-  --active-contrast-amount: 30%;
-}
-
-.theme-dark {
-  --contrast-color: var(--highlight);
-  --bg-contrast-amount: 15%;
-  --fg-contrast-amount: 40%;
-  --medium-contrast-amount: 20%;
-  --active-contrast-amount: 10%;
-}
-
-.nav-folder-title {
-  font-weight: bold;
-  font-family: var(--sidebar-font-family);
-  font-size: var(--sidebar-font-size);
-  border-radius: 5px;
-  color: var(--prefix-color, var(--fallback-color));
-  --nav-item-color-hover: color-mix(
-    in srgb,
-    var(--prefix-color, var(--fallback-color)) var(--fg-contrast-amount),
-    var(--contrast-color)
-  );
-  --nav-item-background-hover: color-mix(
-    in srgb,
-    var(--prefix-color, var(--fallback-color)) var(--bg-contrast-amount),
-    transparent
-  );
-  --background-modifier-border-focus: color-mix(
-    in srgb,
-    var(--prefix-color, var(--fallback-color)) 40%,
-    transparent
-  );
-  --nav-collapse-icon-color: color-mix(
-    in srgb,
-    var(--prefix-color, var(--fallback-color)) 60%,
-    transparent
-  );
-}
-
-.nav-folder-title:hover {
-  --nav-collapse-icon-color: color-mix(
-    in srgb,
-    var(--prefix-color, var(--fallback-color)) 60%,
-    var(--contrast-color)
-  );
-}
-
-.tree-item-children {
-  --nav-indentation-guide-color: transparent;
-}
-
-.tree-item-children .nav-folder:has(.nav-folder-title) .nav-file-title {
-  color: color-mix(
-    in srgb,
-    var(--prefix-color, var(--fallback-color)) var(--medium-contrast-amount),
-    var(--default-text-color)
-  );
-  --nav-item-background-hover: color-mix(
-    in srgb,
-    color-mix(in srgb, var(--prefix-color, var(--fallback-color)) 50%, var(--highlight))
-      var(--bg-contrast-amount),
-    transparent
-  );
-  --background-modifier-border-focus: color-mix(
-    in srgb,
-    var(--prefix-color, var(--fallback-color)) 40%,
-    transparent
-  );
-  --nav-item-background-active: color-mix(
-    in srgb,
-    var(--prefix-color, var(--fallback-color)) var(--active-contrast-amount),
-    transparent
-  );
-}
-
-.tree-item-children .nav-file-title {
-  color: color-mix(
-    in srgb,
-    var(--prefix-color, var(--fallback-color)) var(--medium-contrast-amount),
-    var(--default-text-color)
-  );
-  --nav-item-background-hover: color-mix(
-    in srgb,
-    color-mix(in srgb, var(--prefix-color, var(--fallback-color)) 50%, var(--highlight))
-      var(--bg-contrast-amount),
-    transparent
-  );
-  --background-modifier-border-focus: color-mix(
-    in srgb,
-    var(--prefix-color, var(--fallback-color)) 40%,
-    transparent
-  );
-  --nav-item-background-active: color-mix(
-    in srgb,
-    var(--prefix-color, var(--fallback-color)) var(--active-contrast-amount),
-    transparent
-  );
-}
-
-@media only screen and (min-width: 768px) {
-  .nav-file-title,
-  .nav-folder-title {
-    padding-top: 3px !important;
-    padding-right: 5px !important;
-    padding-bottom: 2px !important;
-    padding-left: 15px !important;
-  }
-}
